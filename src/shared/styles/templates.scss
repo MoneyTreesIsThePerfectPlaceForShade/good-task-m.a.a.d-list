@@ -1,0 +1,88 @@
+@import "src/shared/styles/vars";
+@import 'src/shared/styles/mixins';
+
+%template-container {
+  width: $width-container;
+  margin: 0 auto;
+
+  //@media (max-width: 72.5em) {
+  //  width: 65%;
+  //}
+  //
+  //@media (max-width: 55em) {
+  //  width: 100%;
+  //}
+}
+
+%template-task{
+  background-color: $task-background-light;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  max-width: 60rem;
+  margin: 0 auto;
+
+  border-radius: 1.6rem;
+  padding: 1rem 2rem;
+
+  text-align: center;
+
+  .title{
+    @include set-font(2.4rem, normal, 700);
+  }
+
+  .body{
+    padding-left: 1rem;
+    padding-top: 0.4rem;
+    @include set-font(1.6rem);
+  }
+
+  .done{
+    text-decoration: line-through;
+    color: lighten(#343a40, 50%);
+  }
+
+  button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    //background: $button-background-light;
+    //border: 1px solid darken($button-background-light, 15%);
+
+    background: none;
+    border: none;
+    @include set-font(2rem);
+
+    padding: 0.4rem 0.4rem;
+    border-radius: 4rem;
+
+    cursor: pointer;
+  }
+
+  .trashEditBlock{
+    display: flex;
+  }
+
+  .icon{
+    color: $font-light;
+    transition: all ease-in-out 0.2s;
+
+    &:hover{
+      color: $done-task-mark;
+      transition: all ease-in-out 0.2s;
+    }
+  }
+
+  .trash{
+    color: $done-task-mark;
+    transition: all ease-in-out 0.2s;
+
+    &:hover{
+      color: $font-light;
+      transition: all ease-in-out 0.2s;
+    }
+  }
+}

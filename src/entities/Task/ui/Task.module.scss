@@ -1,0 +1,8 @@
+@import "src/shared/index";
+
+.task{
+  @extend %template-task;
+}
+.icon{color: $font-light;}
+
+
