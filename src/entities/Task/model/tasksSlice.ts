@@ -1,11 +1,12 @@
 import { createAction, createReducer, createSlice } from "@reduxjs/toolkit";
+import taskList from "../../../widgets/TaskList/TaskList";
 
 const tasksSlice = createSlice({
   name: "tasks",
   initialState: {
     tasks: [
-      { title: "Тренировка", body: "Кардио 20 минут" },
-      { title: "Уборка", body: "Помыть пол, убрать на столе" },
+      { id: 1, title: "Тренировка", body: "Кардио 20 минут" },
+      { id: 2, title: "Уборка", body: "Помыть пол" },
     ],
   },
   reducers: {
@@ -13,9 +14,13 @@ const tasksSlice = createSlice({
       state.tasks.push(action.payload);
     },
 
-    doneTask(state: any, action: any) {},
+    deleteTask(state: any, action: any) {
+      state.tasks = state.tasks.filter((task: { id: number }) => {
+        return task.id !== action.payload;
+      });
+    },
   },
 });
 
 export default tasksSlice.reducer;
-export const { addTask } = tasksSlice.actions;
+export const { addTask, deleteTask } = tasksSlice.actions;

@@ -4,19 +4,25 @@ import cn from "classnames";
 import { BsTrash } from "react-icons/bs";
 import { AiOutlineEdit } from "react-icons/ai";
 import { MdDone } from "react-icons/md";
-import { IconContext } from "react-icons";
+import { useDispatch } from "react-redux";
+import { deleteTask } from "../model/tasksSlice";
 
 interface ITask {
-  title: string;
-  body: string;
+  task: {
+    id: any;
+    title: string;
+    body: string;
+  };
 }
 
-export const Task: FC<ITask> = ({ title, body }) => {
+export const Task: FC<ITask> = ({ task: { id, title, body } }) => {
   const [isDone, setIsDone] = useState(false);
 
   const doneTask = () => {
     setIsDone(!isDone);
   };
+
+  const dispatch = useDispatch();
 
   return (
     <div className={cn(styles.task)}>
@@ -28,7 +34,7 @@ export const Task: FC<ITask> = ({ title, body }) => {
         <p className={styles.body}>{body}</p>
       </div>
       <div className={styles.trashEditBlock}>
-        <button>
+        <button onClick={() => dispatch(deleteTask(id))}>
           <BsTrash className={styles.trash} />
         </button>
         <button>

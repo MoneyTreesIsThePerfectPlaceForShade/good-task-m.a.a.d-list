@@ -1,8 +1,63 @@
 @import "src/shared/index";
 
 .task{
-  @extend %template-task;
+  background-color: $task-background-light;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  max-width: 60rem;
+  margin: 0 auto;
+
+  border-radius: 1.6rem;
+  padding: 1rem 2rem;
+
+  text-align: center;
+
+  .title{
+    @include set-font(2.4rem, normal, 700);
+  }
+
+  .body{
+    padding-left: 1rem;
+    padding-top: 0.4rem;
+    @include set-font(1.6rem);
+  }
+
+  .done{
+    text-decoration: line-through;
+    color: lighten(#343a40, 50%);
+  }
+
+  button{
+    @extend %button-template;
+  }
+
+  .trashEditBlock{
+    display: flex;
+    gap: 1.6rem;
+  }
+
+  .icon{
+    color: $font-light;
+    transition: all ease-in-out 0.2s;
+
+    &:hover{
+      color: $done-task-mark;
+      transition: all ease-in-out 0.2s;
+    }
+  }
+
+  .trash{
+    color: $done-task-mark;
+    transition: all ease-in-out 0.2s;
+
+    &:hover{
+      color: $font-light;
+      transition: all ease-in-out 0.2s;
+    }
+  }
 }
-.icon{color: $font-light;}
 
 
