@@ -1,0 +1,30 @@
+@import "src/shared/styles/vars";
+@import 'src/shared/styles/mixins';
+
+%template-container {
+  width: $width-container;
+  margin: 0 auto;
+
+  @media (max-width: 72.5em) {
+    width: 65%;
+  }
+
+  @media (max-width: 55em) {
+    width: 100%;
+  }
+}
+
+%button-template{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: none;
+  border: none;
+  @include set-font(2rem);
+
+  padding: 0.4rem 0.4rem;
+  border-radius: 4rem;
+
+  cursor: pointer;
+}

@@ -1,14 +1,11 @@
 import React from "react";
 import styles from "./App.module.scss";
-import { Task } from "@/entities";
+import MainPage from "../../pages/MainPage/MainPage";
 
 export function App() {
   return (
     <div className={styles.container}>
-      <Task />
-      asdad
+      <MainPage />
     </div>
   );
 }
-
-// export default App;
