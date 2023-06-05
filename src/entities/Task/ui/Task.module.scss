@@ -15,7 +15,7 @@
 
   text-align: center;
 
-  transition: background-color 0.2s;
+  transition: all ease-in-out 0.2s;
 
   @media(max-width: 40em){
     max-width: 55rem;
@@ -43,7 +43,7 @@
 
   &:hover{
     background-color: lighten($font-light, 25%);
-    transition: background-color 0.2s;
+    transition: all ease-in-out 0.2s;
     color: white;
 
     button{
