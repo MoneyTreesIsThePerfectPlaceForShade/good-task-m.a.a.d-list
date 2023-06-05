@@ -29,7 +29,7 @@ export const Task: FC<ITask> = ({ task: { id, title, body } }) => {
       <button onClick={doneTask}>
         <MdDone className={styles.icon} />
       </button>
-      <div className={cn(isDone ? styles.done : "")}>
+      <div className={cn(styles.titleNBody, isDone ? styles.done : "")}>
         <p className={styles.title}>{title}</p>
         <p className={styles.body}>{body}</p>
       </div>

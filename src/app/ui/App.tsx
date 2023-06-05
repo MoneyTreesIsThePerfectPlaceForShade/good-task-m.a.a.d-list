@@ -1,11 +1,11 @@
 import React from "react";
 import styles from "./App.module.scss";
-import TaskList from "../../widgets/TaskList/TaskList";
+import MainPage from "../../pages/MainPage/MainPage";
 
 export function App() {
   return (
     <div className={styles.container}>
-      <TaskList />
+      <MainPage />
     </div>
   );
 }

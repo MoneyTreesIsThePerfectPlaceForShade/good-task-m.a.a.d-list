@@ -1,0 +1,5 @@
+@import "src/shared/index";
+
+.container{
+  @extend %template-container;
+}

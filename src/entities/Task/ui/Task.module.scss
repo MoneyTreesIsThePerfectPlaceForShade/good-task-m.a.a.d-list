@@ -15,14 +15,62 @@
 
   text-align: center;
 
+  transition: background-color 0.2s;
+
+  @media(max-width: 40em){
+    max-width: 55rem;
+  }
+
+  @media(max-width: 36em){
+    max-width: 50rem;
+  }
+
+  @media(max-width: 33.125em){
+    max-width: 45rem;
+  }
+
+  @media(max-width: 29.375em){
+    max-width: 40rem;
+  }
+
+  @media(max-width: 26.25em){
+    max-width: 35rem;
+  }
+
+  @media(max-width: 23.125em){
+    max-width: 30rem;
+  }
+
+  &:hover{
+    background-color: lighten($font-light, 25%);
+    transition: background-color 0.2s;
+    color: white;
+
+    button{
+      background-color: $background-light;
+    }
+
+    .body{
+      background: darken($background-light, 50%);
+    }
+  }
+
   .title{
     @include set-font(2.4rem, normal, 700);
   }
 
   .body{
-    padding-left: 1rem;
-    padding-top: 0.4rem;
+    padding: 2rem 2rem;
+
+    margin-top: 1rem;
     @include set-font(1.6rem);
+
+    background-color: $background-light;
+    border-radius: 2rem;
+  }
+
+  .titleNBody{
+    max-width: 70%;
   }
 
   .done{
@@ -36,6 +84,7 @@
 
   .trashEditBlock{
     display: flex;
+    flex-direction: column-reverse;
     gap: 1.6rem;
   }
 
@@ -54,7 +103,7 @@
     transition: all ease-in-out 0.2s;
 
     &:hover{
-      color: $font-light;
+      color: darken($done-task-mark, 10%);
       transition: all ease-in-out 0.2s;
     }
   }
