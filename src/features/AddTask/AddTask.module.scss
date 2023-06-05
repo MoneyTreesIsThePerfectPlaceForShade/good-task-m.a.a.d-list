@@ -1,3 +1,5 @@
+@import "src/shared/index";
+
 .container{
   max-width: 60rem;
   margin: 0 auto;
@@ -8,8 +10,144 @@
 
   padding: 2rem;
 
-  label{
-    padding: 0 1rem;
+  @include set-font(1.6rem);
+
+  .wrapper{
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+  }
+
+  .label{
+    display: inline-block;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .input{
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+
+    min-width: 60rem;
+    max-width: 60rem;
+
+    transition: all ease-in-out 0.2s;
+
+    @media(max-width: 40em){
+      min-width: 55rem;
+      max-width: 55rem;
+    }
+
+    @media(max-width: 36em){
+      min-width: 50rem;
+      max-width: 50rem;
+    }
+
+    @media(max-width: 33.125em){
+      min-width: 45rem;
+      max-width: 45rem;
+    }
+
+    @media(max-width: 29.375em){
+      min-width: 40rem;
+      max-width: 40rem;
+    }
+
+    @media(max-width: 26.25em){
+      min-width: 35rem;
+      max-width: 35rem;
+    }
+
+    @media(max-width: 23.125em){
+      min-width: 30rem;
+      max-width: 30rem;
+    }
+  }
+
+  .textarea{
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+
+    min-height: 10rem;
+    min-width: 60rem;
+    max-width: 60rem;
+
+    transition: all ease-in-out 0.2s;
+
+    @media(max-width: 40em){
+      min-width: 55rem;
+      max-width: 55rem;
+    }
+
+    @media(max-width: 36em){
+      min-width: 50rem;
+      max-width: 50rem;
+    }
+
+    @media(max-width: 33.125em){
+      min-width: 45rem;
+      max-width: 45rem;
+    }
+
+    @media(max-width: 29.375em){
+      min-width: 40rem;
+      max-width: 40rem;
+    }
+
+    @media(max-width: 26.25em){
+      min-width: 35rem;
+      max-width: 35rem;
+    }
+
+    @media(max-width: 23.125em){
+      min-width: 30rem;
+      max-width: 30rem;
+    }
+  }
+
+  .labelNInput{
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .error{
+    color: $done-task-mark;
+    display: inline-block;
+    padding-top: 1rem;
+  }
+
+  .addTask{
+    margin-top: 2rem;
+    padding: 1.6rem 1rem;
+    border: none;
+    border-radius: 1rem;
+    color: white;
+
+    background-color: $button-background-light;
+
+    @include set-font(2rem, normal, 600);
+
+    cursor: pointer;
+
+    box-shadow: 0 0.4rem 0.6rem lighten($font-light, 25%);
+
+    transition: all ease-in-out 0.3s;
+
+    &:disabled{
+      opacity: 65%;
+      box-shadow: 0 0.4rem 0.6rem lighten($font-light, 50%);
+      transition: all ease-in-out 0.3s;
+      @include set-font(1.6rem, normal, 600);
+    }
+
+    &:active{
+      transform: translateY(0.4rem);
+      box-shadow: none;
+    }
   }
 }
 

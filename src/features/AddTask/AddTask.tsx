@@ -32,10 +32,21 @@ const AddTask = () => {
     }
   };
 
+  const isOver40 = (e: any) => {
+    const isOver40 = e.target.value
+      .split(" ")
+      .filter((word: string) => word.length > 40);
+
+    return isOver40.length > 0;
+  };
+
   const titleHandler = (e: any) => {
     setTitle(e.target.value);
+
     if (!e.target.value) {
       setTitleError("Введите название");
+    } else if (isOver40(e)) {
+      setTitleError("Одно слово должно быть меньше 40 символов");
     } else {
       setTitleError("");
     }
@@ -45,6 +56,8 @@ const AddTask = () => {
     setBody(e.target.value);
     if (!e.target.value) {
       setBodyError("Введите описание");
+    } else if (isOver40(e)) {
+      setBodyError("Одно слово должно быть меньше 40 символов");
     } else {
       setBodyError("");
     }
@@ -64,36 +77,57 @@ const AddTask = () => {
 
   return (
     <form className={styles.container}>
-      <label htmlFor="title">Назвние</label>
-      <input
-        type="text"
-        id="title"
-        name="title"
-        value={title}
-        onChange={(e) => titleHandler(e)}
-        onBlur={(e) => blurHandler(e)}
-      />
-      {titleDirty && titleError && <div>{titleError}</div>}
-      <label htmlFor="body">Описание</label>
-      <input
-        type="text"
-        id="body"
-        name="body"
-        value={body}
-        onChange={(e) => bodyHandler(e)}
-        onBlur={(e) => blurHandler(e)}
-      />
-      {bodyDirty && bodyError && <div>{bodyError}</div>}
-      <button
-        onClick={(e) => {
-          e.preventDefault();
-          //@ts-ignore
-          dispatch(addTask(task));
-        }}
-        disabled={!formValid}
-      >
-        Добавить задачу
-      </button>
+      <div className={styles.wrapper}>
+        <div>
+          <div className={styles.labelNInput}>
+            <label htmlFor="title" className={styles.label}>
+              Название
+            </label>
+            <input
+              className={styles.input}
+              type="text"
+              id="title"
+              name="title"
+              value={title}
+              onChange={(e) => titleHandler(e)}
+              onBlur={(e) => blurHandler(e)}
+            />
+          </div>
+          {titleDirty && titleError && (
+            <span className={styles.error}>{titleError}</span>
+          )}
+        </div>
+        <div>
+          <div className={styles.labelNInput}>
+            <label htmlFor="body" className={styles.label}>
+              Описание
+            </label>
+            <textarea
+              className={styles.textarea}
+              id="body"
+              name="body"
+              value={body}
+              onChange={(e) => bodyHandler(e)}
+              onBlur={(e) => blurHandler(e)}
+            />
+          </div>
+          {bodyDirty && bodyError && (
+            <span className={styles.error}>{bodyError}</span>
+          )}
+        </div>
+
+        <button
+          className={styles.addTask}
+          onClick={(e) => {
+            e.preventDefault();
+            //@ts-ignore
+            dispatch(addTask(task));
+          }}
+          disabled={!formValid}
+        >
+          Добавить задачу
+        </button>
+      </div>
     </form>
   );
 };
