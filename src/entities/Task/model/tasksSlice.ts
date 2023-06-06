@@ -4,7 +4,7 @@ const tasksSlice = createSlice({
   name: "tasks",
   initialState: {
     tasks: [
-      { id: "sdatgds4", title: "Тренировка", body: "Кардио 20 минут" },
+      { id: "sd5teds4", title: "Тренировка", body: "Кардио 20 минут" },
       { id: "s2d4gse4", title: "Уборка", body: "Помыть пол" },
     ],
   },
@@ -18,8 +18,22 @@ const tasksSlice = createSlice({
         return task.id !== action.payload;
       });
     },
+
+    editTask(state: any, action: any) {
+      state.tasks.map((task: any) => {
+        console.log(task.id, action.payload.id);
+        if (task.id === action.payload.id) {
+          task.title = action.payload.title;
+          console.log(action.payload.title);
+          task.body = action.payload.body;
+          console.log(action.payload.body);
+        }
+
+        return task;
+      });
+    },
   },
 });
 
 export default tasksSlice.reducer;
-export const { addTask, deleteTask } = tasksSlice.actions;
+export const { addTask, deleteTask, editTask } = tasksSlice.actions;

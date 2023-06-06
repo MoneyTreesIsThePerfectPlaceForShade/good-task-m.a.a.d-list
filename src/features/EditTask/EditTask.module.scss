@@ -1,0 +1,16 @@
+@import "src/shared/index";
+
+.editForm{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color: #f08c00;
+  padding: 10rem 10rem;
+
+  border-radius: 2rem;
+}
+
+.btnOpen{
+  @extend %button-template;
+}
