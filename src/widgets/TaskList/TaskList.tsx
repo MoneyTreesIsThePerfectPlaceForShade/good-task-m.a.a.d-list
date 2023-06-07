@@ -8,6 +8,7 @@ const TaskList = () => {
 
   return (
     <div className={styles.container}>
+      <h1 className={styles.header}>Список задач</h1>
       {tasks.map((task: any) => (
         <div>
           <Task task={task} />
