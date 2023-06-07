@@ -5,7 +5,8 @@ import { BsTrash } from "react-icons/bs";
 import { AiOutlineEdit } from "react-icons/ai";
 import { MdDone } from "react-icons/md";
 import { useDispatch } from "react-redux";
-import { deleteTask } from "../model/tasksSlice";
+import { deleteTask, editTask } from "../model/tasksSlice";
+import EditTask from "../../../features/EditTask/EditTask";
 
 interface ITask {
   task: {
@@ -37,9 +38,7 @@ export const Task: FC<ITask> = ({ task: { id, title, body } }) => {
         <button onClick={() => dispatch(deleteTask(id))}>
           <BsTrash className={styles.trash} />
         </button>
-        <button>
-          <AiOutlineEdit className={styles.icon} />
-        </button>
+        <EditTask task={{ id, title, body }} />
       </div>
     </div>
   );

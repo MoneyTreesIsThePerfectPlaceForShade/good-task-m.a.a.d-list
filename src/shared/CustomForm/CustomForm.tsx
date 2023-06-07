@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
-import styles from "./AddTask.module.scss";
+import React, { FC, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { addTask } from "../../entities/Task/model/tasksSlice";
 import { nanoid } from "@reduxjs/toolkit";
+import styles from "../../features/AddTask/AddTask.module.scss";
+import { addTask } from "../../entities/Task/model/tasksSlice";
 
-const AddTask = () => {
+interface ICustomForm {}
+
+const CustomForm: FC<ICustomForm> = ({}) => {
   const dispatch = useDispatch();
 
   const [title, setTitle] = useState("");
@@ -81,60 +83,46 @@ const AddTask = () => {
   }, [titleError, bodyError]);
 
   return (
-    <form className={styles.container}>
-      <div className={styles.wrapper}>
-        <div>
-          <div className={styles.labelNInput}>
-            <label htmlFor="title" className={styles.label}>
-              Название
-            </label>
-            <input
-              className={styles.input}
-              type="text"
-              id="title"
-              name="title"
-              value={title}
-              onChange={(e) => titleHandler(e)}
-              onBlur={(e) => blurHandler(e)}
-            />
-          </div>
-          {titleDirty && titleError && (
-            <span className={styles.error}>{titleError}</span>
-          )}
+    <div>
+      <div>
+        <div className={styles.labelNInput}>
+          <label htmlFor="title" className={styles.label}>
+            Название
+          </label>
+          <input
+            className={styles.input}
+            type="text"
+            id="title"
+            name="title"
+            value={title}
+            onChange={(e) => titleHandler(e)}
+            onBlur={(e) => blurHandler(e)}
+          />
         </div>
-        <div>
-          <div className={styles.labelNInput}>
-            <label htmlFor="body" className={styles.label}>
-              Описание
-            </label>
-            <textarea
-              className={styles.textarea}
-              id="body"
-              name="body"
-              value={body}
-              onChange={(e) => bodyHandler(e)}
-              onBlur={(e) => blurHandler(e)}
-            />
-          </div>
-          {bodyDirty && bodyError && (
-            <span className={styles.error}>{bodyError}</span>
-          )}
-        </div>
-
-        <button
-          className={styles.addTask}
-          onClick={(e) => {
-            e.preventDefault();
-            //@ts-ignore
-            dispatch(addTask(task));
-          }}
-          disabled={!formValid}
-        >
-          Добавить задачу
-        </button>
+        {titleDirty && titleError && (
+          <span className={styles.error}>{titleError}</span>
+        )}
       </div>
-    </form>
+      <div>
+        <div className={styles.labelNInput}>
+          <label htmlFor="body" className={styles.label}>
+            Описание
+          </label>
+          <textarea
+            className={styles.textarea}
+            id="body"
+            name="body"
+            value={body}
+            onChange={(e) => bodyHandler(e)}
+            onBlur={(e) => blurHandler(e)}
+          />
+        </div>
+        {bodyDirty && bodyError && (
+          <span className={styles.error}>{bodyError}</span>
+        )}
+      </div>
+    </div>
   );
 };
 
-export default AddTask;
+export default CustomForm;
