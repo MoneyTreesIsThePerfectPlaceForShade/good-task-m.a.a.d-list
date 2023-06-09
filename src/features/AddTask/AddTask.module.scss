@@ -6,9 +6,7 @@
   padding: 2rem;
 
   .wrapper{
-    display: flex;
-    flex-direction: column;
-    gap:1rem;
+    @extend %wrapper-template;
   }
 
   .label{
@@ -37,4 +35,3 @@
     @extend %save-task-button-template;
   }
 }
-

@@ -39,6 +39,12 @@
   @include set-font(2rem);
 }
 
+%wrapper-template {
+  display: flex;
+  flex-direction: column;
+  gap:1rem;
+}
+
 %label-template{
   display: inline-block;
   padding-right: 1rem;
