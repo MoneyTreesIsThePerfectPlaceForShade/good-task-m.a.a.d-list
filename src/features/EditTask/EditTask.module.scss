@@ -15,9 +15,8 @@
 
     border-radius: 2rem;
 
-    display: flex;
-    flex-direction: column;
-    gap:1rem;
+    @extend %wrapper-template;
+
     z-index: 1;
 
     box-shadow: 0 0 10rem $font-light;
@@ -49,7 +48,3 @@
     background-color: $background-light;
   }
 }
-
-
-
-

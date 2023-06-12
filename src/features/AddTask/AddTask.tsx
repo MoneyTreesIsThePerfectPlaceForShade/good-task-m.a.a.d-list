@@ -69,7 +69,7 @@ const AddTask = () => {
   // в зависимостях лежит time для того, чтобы одинаковые id не присваивались
   // заметкам с одинаковыми title и body
   useEffect(() => {
-    setTask({ id: nanoid(8), title, body });
+    setTask({ id: nanoid(8), title, body, done: false });
   }, [title, body]);
 
   useEffect(() => {
