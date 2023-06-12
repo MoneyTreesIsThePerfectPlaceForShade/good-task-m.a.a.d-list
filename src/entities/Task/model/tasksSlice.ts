@@ -18,8 +18,7 @@ const tasksSlice = createSlice({
     addTask(state: { tasks: object[]; filteredTasks: object[] }, action: any) {
       state.tasks.push(action.payload);
 
-      // state.filteredTasks.push(action.payload);
-      state.filteredTasks = state.tasks;
+      state.filteredTasks.push(action.payload);
     },
 
     deleteTask(state: any, action: any) {
@@ -27,12 +26,9 @@ const tasksSlice = createSlice({
         return task.id !== action.payload;
       });
 
-      // state.filteredTasks = state.filteredTasks.filter(
-      //   (task: { id: string }) => {
-      //     return task.id !== action.payload;
-      //   }
-      // );
-      state.filteredTasks = state.tasks;
+      state.filteredTasks = state.tasks.filter((task: { id: string }) => {
+        return task.id !== action.payload;
+      });
     },
 
     editTask(state: any, action: any) {
@@ -41,32 +37,25 @@ const tasksSlice = createSlice({
           task.title = action.payload.title;
           task.body = action.payload.body;
         }
-
-        return task;
       });
 
-      state.filteredTasks = state.tasks;
-
-      // state.filteredTasks.map(
-      //   (task: { id: number; title: string; body: string }) => {
-      //     if (task.id === action.payload.id) {
-      //       task.title = action.payload.title;
-      //       task.body = action.payload.body;
-      //     }
-      //
-      //     return task;
-      //   }
-      // );
+      state.filteredTasks.map(
+        (task: { id: number; title: string; body: string }) => {
+          if (task.id === action.payload.id) {
+            task.title = action.payload.title;
+            task.body = action.payload.body;
+          }
+        }
+      );
     },
 
-    filterCompletedTasks(state: any, action: any) {
+    filterCompletedTasks(state: any, { payload }) {
       state.filteredTasks = state.tasks.filter(
         (task: { id: number; title: string; body: string; done: boolean }) => {
-          if (action.payload === "all") return task;
-
-          if (action.payload === "done") return task.done;
-
-          if (action.payload === "notDone") return !task.done;
+          if (payload === "all") return task;
+          if (payload === "done") return task.done;
+          if (payload === "notDone") return !task.done;
+          return task;
         }
       );
     },
@@ -74,21 +63,21 @@ const tasksSlice = createSlice({
     toggleDone(state: any, action: any) {
       state.tasks.map(
         (task: { id: number; title: string; body: string; done: boolean }) => {
-          if (task.id === action.payload.id) {
-            task.done = !action.payload.isDone;
+          if (task.id === action.payload) {
+            task.done = !task.done;
           }
           return task;
         }
       );
 
-      // state.filteredTasks.map(
-      //   (task: { id: number; title: string; body: string; done: boolean }) => {
-      //     if (task.id === action.payload.id) {
-      //       task.done = !action.payload.isDone;
-      //     }
-      //     return task;
-      //   }
-      // );
+      state.filteredTasks.map(
+        (task: { id: number; title: string; body: string; done: boolean }) => {
+          if (task.id === action.payload) {
+            task.done = !task.done;
+          }
+          return task;
+        }
+      );
     },
   },
 });

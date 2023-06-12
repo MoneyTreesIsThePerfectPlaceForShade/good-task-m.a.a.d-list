@@ -5,6 +5,7 @@ import styles from "./TaskList.module.scss";
 import { filterCompletedTasks } from "../../entities/Task/model/tasksSlice";
 
 const TaskList = () => {
+  const tasks = useSelector((state: any) => state.tasks.tasks);
   const filteredTasks = useSelector((state: any) => state.tasks.filteredTasks);
 
   const dispatch = useDispatch();
@@ -21,6 +22,13 @@ const TaskList = () => {
       ) : (
         <h1 className={styles.header}>Список задач пуст</h1>
       )}
+      {/*{filteredTasks &&*/}
+      {/*  tasks.map((task: any) => (*/}
+      {/*    <div>*/}
+      {/*      <span>tasks</span>*/}
+      {/*      <Task task={task} />*/}
+      {/*    </div>*/}
+      {/*  ))}*/}
       {filteredTasks &&
         filteredTasks.map((task: any) => (
           <div>

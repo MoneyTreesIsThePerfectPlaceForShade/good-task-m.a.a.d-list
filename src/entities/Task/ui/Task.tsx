@@ -4,12 +4,7 @@ import cn from "classnames";
 import { BsTrash } from "react-icons/bs";
 import { MdDone } from "react-icons/md";
 import { useDispatch } from "react-redux";
-import {
-  deleteTask,
-  editTask,
-  filterCompletedTasks,
-  toggleDone,
-} from "../model/tasksSlice";
+import { deleteTask, toggleDone } from "../model/tasksSlice";
 import EditTask from "../../../features/EditTask/EditTask";
 
 interface ITask {
@@ -28,8 +23,7 @@ export const Task: FC<ITask> = ({ task: { id, title, body, done } }) => {
 
   const doneTask = () => {
     setIsDone(!isDone);
-    //@ts-ignore
-    dispatch(toggleDone({ id, isDone }));
+    dispatch(toggleDone(id));
   };
 
   return (
@@ -42,7 +36,11 @@ export const Task: FC<ITask> = ({ task: { id, title, body, done } }) => {
         <p className={styles.body}>{body}</p>
       </div>
       <div className={styles.trashEditBlock}>
-        <button onClick={() => dispatch(deleteTask(id))}>
+        <button
+          onClick={() => {
+            dispatch(deleteTask(id));
+          }}
+        >
           <BsTrash className={styles.trash} />
         </button>
         <EditTask task={{ id, title, body }} />
