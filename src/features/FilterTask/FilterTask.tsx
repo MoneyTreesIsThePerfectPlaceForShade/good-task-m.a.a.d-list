@@ -5,7 +5,6 @@ import { filterCompletedTasks } from "../../entities/Task/model/tasksSlice";
 const FilterTask = () => {
   const dispatch = useDispatch();
 
-  // filterCompletedTasks
   return (
     <div>
       <select
@@ -13,7 +12,6 @@ const FilterTask = () => {
         id="filter"
         defaultValue={"all"}
         onChange={(e) => {
-          console.log(e.target.value);
           //@ts-ignore
           dispatch(filterCompletedTasks(e.target.value));
         }}

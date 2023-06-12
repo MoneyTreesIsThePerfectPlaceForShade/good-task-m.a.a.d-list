@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import styles from "./AddTask.module.scss";
 import { useDispatch } from "react-redux";
-import { addTask } from "../../entities/Task/model/tasksSlice";
+import {
+  addTask,
+  filterCompletedTasks,
+} from "../../entities/Task/model/tasksSlice";
 import { nanoid } from "@reduxjs/toolkit";
 
 const AddTask = () => {
