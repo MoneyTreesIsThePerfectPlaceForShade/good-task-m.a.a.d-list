@@ -1,10 +1,11 @@
 import React from "react";
+import styles from "./Footer.module.scss";
 
 export const Footer = () => {
   return (
-    <div>
-      <span>Разработка и дизайн: Матвей Скоморохов</span>
-      <div>
+    <div className={styles.container}>
+      <span className={styles.dev}>Разработка и дизайн: Матвей Скоморохов</span>
+      <div className={styles.contacts}>
         <span>Контакты:</span>
         <a href="https://github.com/MoneyTreesIsThePerfectPlaceForShade">
           GitHub
