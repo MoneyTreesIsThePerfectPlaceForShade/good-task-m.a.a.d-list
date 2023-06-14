@@ -32,21 +32,11 @@ const AddTask = () => {
     }
   };
 
-  const isOver40 = (e: any) => {
-    const isOver40 = e.target.value
-      .split(" ")
-      .filter((word: string) => word.length > 40);
-
-    return isOver40.length > 0;
-  };
-
   const titleHandler = (e: any) => {
     setTitle(e.target.value);
 
     if (!e.target.value) {
       setTitleError("Введите название");
-    } else if (isOver40(e)) {
-      setTitleError("Одно слово должно быть меньше 40 символов");
     } else {
       setTitleError("");
     }
@@ -56,8 +46,6 @@ const AddTask = () => {
     setBody(e.target.value);
     if (!e.target.value) {
       setBodyError("Введите описание");
-    } else if (isOver40(e)) {
-      setBodyError("Одно слово должно быть меньше 40 символов");
     } else {
       setBodyError("");
     }
