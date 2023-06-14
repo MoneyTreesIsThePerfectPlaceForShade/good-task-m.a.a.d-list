@@ -1,5 +1,6 @@
 import React, { FC, ReactElement } from "react";
 import { Footer, Header } from "../../widgets";
+import styles from "./Layout.module.scss";
 
 interface ILayout {
   children: ReactElement;
@@ -7,7 +8,7 @@ interface ILayout {
 
 export const Layout: FC<ILayout> = ({ children }) => {
   return (
-    <div>
+    <div className={styles.container}>
       <Header />
       {children}
       <Footer />

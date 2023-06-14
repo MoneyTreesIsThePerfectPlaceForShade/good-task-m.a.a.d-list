@@ -1,14 +1,13 @@
 @import "src/shared/index";
 
 .task{
-  background-color: $task-background-light;
-
-  display: flex;
-  align-items: center;
+  @extend %center-content-template;
   justify-content: space-between;
 
   max-width: 60rem;
   margin: 0 auto;
+
+  background-color: $task-background-light;
 
   border-radius: 1.6rem;
   padding: 1rem 2rem;

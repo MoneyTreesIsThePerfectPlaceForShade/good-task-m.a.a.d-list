@@ -1,10 +1,16 @@
 import React from "react";
 import styles from "./Header.module.scss";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
   return (
-    <div className={styles.container}>
-      <h1>Header</h1>
-    </div>
+    <nav className={styles.container}>
+      <Link to={"/"} className={styles.link}>
+        Главная
+      </Link>
+      <Link to={"/about"} className={styles.link}>
+        Обо мне
+      </Link>
+    </nav>
   );
 };

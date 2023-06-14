@@ -6,15 +6,24 @@ export const Footer = () => {
     <div className={styles.container}>
       <span className={styles.dev}>Разработка и дизайн: Матвей Скоморохов</span>
       <div className={styles.contacts}>
-        <span>Контакты:</span>
-        <a href="https://github.com/MoneyTreesIsThePerfectPlaceForShade">
+        <a
+          href="https://github.com/MoneyTreesIsThePerfectPlaceForShade"
+          target="_blank"
+        >
           GitHub
         </a>
-        <a href="https://career.habr.com/takemetoyourleader">Хабр Карьера</a>
-        <a href="https://ekaterinburg.hh.ru/resume/5cd6d16aff0b81c5a70039ed1f424348763365">
+        <a href="https://career.habr.com/takemetoyourleader" target="_blank">
+          Хабр Карьера
+        </a>
+        <a
+          href="https://ekaterinburg.hh.ru/resume/5cd6d16aff0b81c5a70039ed1f424348763365"
+          target="_blank"
+        >
           hh.ru
         </a>
-        <a href="https://t.me/warrenwatter">Telegram</a>
+        <a href="https://t.me/warrenwatter" target="_blank">
+          Telegram
+        </a>
       </div>
     </div>
   );
