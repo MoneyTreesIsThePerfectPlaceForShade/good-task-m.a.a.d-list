@@ -5,13 +5,15 @@
   width: $width-container;
   margin: 0 auto;
 
-  @media (max-width: 72.5em) {
-    width: 65%;
-  }
-
   @media (max-width: 55em) {
     width: 100%;
   }
+}
+
+%center-content-template {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 %button-template{

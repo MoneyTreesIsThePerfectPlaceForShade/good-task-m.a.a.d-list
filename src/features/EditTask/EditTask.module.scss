@@ -47,4 +47,21 @@
     color: $font-light;
     background-color: $background-light;
   }
+
+  .btnClose{
+    @extend %save-task-button-template;
+    color: $font-light;
+    background-color: $font-accent;
+    box-shadow: inset 0 0 0.5rem $font-light;
+    max-width: 4rem;
+    max-height: 4rem;
+    border-radius: 10rem;
+    position: absolute;
+    top:-1rem ;
+    right: 1rem;
+
+    &:active{
+      transform: none;
+    }
+  }
 }

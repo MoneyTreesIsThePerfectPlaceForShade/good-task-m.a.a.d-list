@@ -3,6 +3,7 @@ import { editTask } from "../../entities/Task/model/tasksSlice";
 import { AiOutlineEdit } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import styles from "./EditTask.module.scss";
+import { GrFormClose } from "react-icons/gr";
 
 interface ITask {
   task: {
@@ -91,7 +92,12 @@ const EditTask: FC<ITask> = ({ task: { id, title, body } }) => {
       </button>
 
       {isOpened && (
-        <form className={styles.editForm}>
+        <form
+          className={styles.editForm}
+          onKeyUp={(e) => {
+            if (e.key === "Escape") setIsOpened(!isOpened);
+          }}
+        >
           <div>
             <div className={styles.labelNInput}>
               <label htmlFor="title" className={styles.label}>
@@ -140,6 +146,15 @@ const EditTask: FC<ITask> = ({ task: { id, title, body } }) => {
             disabled={!formValid}
           >
             Сохранить
+          </button>
+          <button
+            className={styles.btnClose}
+            onClick={(e) => {
+              e.preventDefault();
+              setIsOpened(!isOpened);
+            }}
+          >
+            <GrFormClose />
           </button>
         </form>
       )}

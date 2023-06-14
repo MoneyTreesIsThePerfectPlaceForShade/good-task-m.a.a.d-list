@@ -1,0 +1,56 @@
+@import "src/shared/index";
+
+.container{
+  @extend %center-content-template;
+
+  padding-bottom: 4rem;
+  gap: 1rem;
+  flex-direction: column;
+
+
+
+  &:hover{
+    .dev{
+      //background-image: url(https://i.giphy.com/media/0oYBxMzAFU3iHhsPk6/giphy.webp);
+      //background-size: cover;
+      //color: transparent;
+      //-webkit-background-clip: text;
+      color: #f08c00;
+      transition: color 0.4s;
+    }
+  }
+
+  .dev{
+    @include set-font(2rem, normal, 500);
+    transition: all 0.4s;
+
+    @media (max-width: 27.5em) {
+      @include set-font(1.8rem, normal, 500);
+    }
+
+    @media (max-width: 23.75em) {
+      @include set-font(1.6rem, normal, 500);
+    }
+
+    @media (max-width: 21.25em) {
+      @include set-font(1.45rem, normal, 500);
+    }
+  }
+
+  .contacts{
+    @include set-font(1.6rem, normal, 600);
+    display: flex;
+    gap:1rem;
+
+    a, a:active, a:visited{
+      text-decoration: none;
+      color: $font-light;
+      transition: color 0.2s;
+    }
+
+    a:hover{
+      color: #f08c00;
+      transition: color 0.2s;
+    }
+  }
+}
