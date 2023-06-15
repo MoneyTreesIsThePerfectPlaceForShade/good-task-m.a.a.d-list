@@ -49,13 +49,7 @@
 
   .link, link:active, link:visited{
     @include set-font(2rem, normal, 500);
-    text-decoration: none;
-    color: $font-light;
-    transition: color 0.2s;
 
-    &:hover{
-      color: $background-light;
-      transition: color 0.2s;
-    }
+    @extend %link-template;
   }
 }

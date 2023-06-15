@@ -1,0 +1,25 @@
+@import "src/shared/index";
+
+.container{
+  @extend %template-container;
+
+  padding: 2rem 2rem;
+
+  .errorID{
+    @include set-font(10rem, normal, 700);
+  }
+
+  .errorDescription{
+    @include set-font(3rem, normal, 700);
+    padding-bottom: 2rem;
+  }
+
+  .link, link:active, link:visited{
+    @include set-font(2rem, normal, 500);
+    @extend %link-template;
+
+    &:hover{
+      color: $button-background-light;
+    }
+  }
+}

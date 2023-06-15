@@ -216,3 +216,14 @@
     //box-shadow: none;
   }
 }
+
+%link-template{
+  text-decoration: none;
+  color: $font-light;
+  transition: color 0.2s;
+
+  &:hover{
+    color: $background-light;
+    transition: color 0.2s;
+  }
+}
