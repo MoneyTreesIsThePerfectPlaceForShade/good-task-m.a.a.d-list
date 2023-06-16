@@ -56,7 +56,7 @@
     }
 
     .body{
-      background: darken($background-light, 50%);
+      background: darken($background-light, 25%);
     }
   }
 
@@ -68,9 +68,12 @@
     padding: 2rem 2rem;
 
     margin-top: 1rem;
+    margin-left: 0.6rem;
+    margin-right: 0.6rem;
     @include set-font(1.6rem);
 
     background-color: $background-light;
+    color: $font-light;
     border-radius: 2rem;
   }
 
@@ -81,6 +84,7 @@
 
   .done{
     text-decoration: line-through;
+    transition: all 0.2s;
     color: lighten(#343a40, 50%);
   }
 

@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./App.module.scss";
-import { About, MainPage } from "../../pages";
+import { About, Error404, MainPage } from "../../pages";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 export function App() {
@@ -9,8 +9,7 @@ export function App() {
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/about" element={<About />} />
-        {/*сделать страницу ошибки*/}
-        <Route path="*" element={<div>404</div>} />
+        <Route path="*" element={<Error404 />} />
       </Routes>
     </BrowserRouter>
   );
