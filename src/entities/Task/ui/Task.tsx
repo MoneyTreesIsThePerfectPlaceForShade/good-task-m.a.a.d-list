@@ -32,7 +32,10 @@ export const Task: FC<ITask> = ({ task: { id, title, body, done } }) => {
       <button onClick={doneTask}>
         <MdDone className={styles.icon} />
       </button>
-      <div className={cn(styles.titleNBody, done ? styles.done : "")}>
+      <div
+        className={cn(styles.titleNBody, done ? styles.done : "")}
+        data-color-mode="light"
+      >
         <p className={styles.title}>{title}</p>
         <MDEditor.Markdown
           className={styles.body}
