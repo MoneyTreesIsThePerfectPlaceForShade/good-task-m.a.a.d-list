@@ -6,6 +6,7 @@ import { MdDone } from "react-icons/md";
 import { useDispatch } from "react-redux";
 import { deleteTask, toggleDone } from "../model/tasksSlice";
 import EditTask from "../../../features/EditTask/EditTask";
+import MDEditor from "@uiw/react-md-editor";
 
 interface ITask {
   task: {
@@ -33,7 +34,12 @@ export const Task: FC<ITask> = ({ task: { id, title, body, done } }) => {
       </button>
       <div className={cn(styles.titleNBody, done ? styles.done : "")}>
         <p className={styles.title}>{title}</p>
-        <p className={styles.body}>{body}</p>
+        <MDEditor.Markdown
+          className={styles.body}
+          source={body}
+          skipHtml={true}
+          transformLinkUri={null}
+        />
       </div>
       <div className={styles.trashEditBlock}>
         <button

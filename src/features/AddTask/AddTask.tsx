@@ -51,11 +51,7 @@ const AddTask = () => {
     }
   };
 
-  // todo подумать как можно изменить, ошибка в консоли, что слишком много ререндеров
-  const time = setInterval(() => {}, 20000);
-
-  // в зависимостях лежит time для того, чтобы одинаковые id не присваивались
-  // заметкам с одинаковыми title и body
+  // вероятно костыль, но иначе не придумал как избавиться от первого пустого пейлоада
   useEffect(() => {
     setTask({ id: nanoid(8), title, body, done: false });
   }, [title, body]);
@@ -102,6 +98,7 @@ const AddTask = () => {
               value={body}
               onChange={(e) => bodyHandler(e)}
               onBlur={(e) => blurHandler(e)}
+              placeholder="Markdown разметка активна"
             />
           </div>
           {bodyDirty && bodyError && (
@@ -113,7 +110,8 @@ const AddTask = () => {
           className={styles.addTask}
           onClick={(e) => {
             e.preventDefault();
-            //@ts-ignore
+            setTask({ id: nanoid(8), title, body, done: false });
+            // @ts-ignore пока не понял как исправить
             dispatch(addTask(task));
           }}
           disabled={!formValid}
