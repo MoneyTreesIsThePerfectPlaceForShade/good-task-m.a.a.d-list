@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { filterCompletedTasks } from "../../entities/Task/model/tasksSlice";
 import styles from "./FilterTask.module.scss";
 
-const FilterTask = () => {
+export const FilterTask = () => {
   const dispatch = useDispatch();
 
   return (
@@ -18,5 +18,3 @@ const FilterTask = () => {
     </div>
   );
 };
-
-export default FilterTask;

@@ -13,7 +13,7 @@ interface ITask {
   };
 }
 
-const EditTask: FC<ITask> = ({ task: { id, title, body } }) => {
+export const EditTask: FC<ITask> = ({ task: { id, title, body } }) => {
   const dispatch = useDispatch();
 
   const [isOpened, setIsOpened] = useState(false);
@@ -161,5 +161,3 @@ const EditTask: FC<ITask> = ({ task: { id, title, body } }) => {
     </div>
   );
 };
-
-export default EditTask;

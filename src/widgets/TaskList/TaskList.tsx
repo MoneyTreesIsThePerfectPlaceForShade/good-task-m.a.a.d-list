@@ -1,6 +1,8 @@
 import React, { FC, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Task } from "../../entities";
+import { Task } from "../../entities"; // обычный импорт, работает
+// import { Task } from "@entities"; // абсолютный, не работает, когда запускаешь проект
+
 import styles from "./TaskList.module.scss";
 import { filterCompletedTasks } from "../../entities/Task/model/tasksSlice";
 

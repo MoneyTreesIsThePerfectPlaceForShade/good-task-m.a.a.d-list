@@ -1,7 +1,7 @@
 import React from "react";
-import AddTask from "../../features/AddTask/AddTask";
+import { AddTask } from "../../features/AddTask/AddTask";
 import { TaskList } from "../../widgets";
-import FilterTask from "../../features/FilterTask/FilterTask";
+import { FilterTask } from "../../features/FilterTask/FilterTask";
 import { useSelector } from "react-redux";
 import { Layout } from "../Layout/Layout";
 

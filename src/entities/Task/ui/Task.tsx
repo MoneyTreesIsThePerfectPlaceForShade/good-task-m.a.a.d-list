@@ -1,11 +1,11 @@
-import React, { FC, useEffect, useMemo, useState } from "react";
+import React, { FC, useState } from "react";
 import styles from "./Task.module.scss";
 import cn from "classnames";
 import { BsTrash } from "react-icons/bs";
 import { MdDone } from "react-icons/md";
 import { useDispatch } from "react-redux";
 import { deleteTask, toggleDone } from "../model/tasksSlice";
-import EditTask from "../../../features/EditTask/EditTask";
+import { EditTask } from "../../../features";
 import MDEditor from "@uiw/react-md-editor";
 
 interface ITask {
