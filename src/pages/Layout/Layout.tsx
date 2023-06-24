@@ -1,5 +1,5 @@
 import React, { FC, ReactElement } from "react";
-import { Footer, Header } from "../../widgets";
+import { Footer, Header } from "@/widgets";
 import styles from "./Layout.module.scss";
 
 interface ILayout {

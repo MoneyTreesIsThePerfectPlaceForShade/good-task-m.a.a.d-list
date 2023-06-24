@@ -1,8 +1,9 @@
 import React, { FC, useEffect, useState } from "react";
-import { editTask } from "../../entities/Task/model/tasksSlice";
+import styles from "./EditTask.module.scss";
+import { editTask } from "@/entities/Task/model/tasksSlice";
+// icons
 import { AiOutlineEdit } from "react-icons/ai";
 import { useDispatch } from "react-redux";
-import styles from "./EditTask.module.scss";
 import { GrFormClose } from "react-icons/gr";
 
 interface ITask {

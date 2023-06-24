@@ -1,11 +1,10 @@
-import React from "react";
-import { AddTask } from "../../features/AddTask/AddTask";
-import { TaskList } from "../../widgets";
-import { FilterTask } from "../../features/FilterTask/FilterTask";
+import React, { FC } from "react";
 import { useSelector } from "react-redux";
+import { AddTask, FilterTask } from "@/features";
+import { TaskList } from "@/widgets";
 import { Layout } from "../Layout/Layout";
 
-export const MainPage = () => {
+export const MainPage: FC = () => {
   const tasks = useSelector((state: any) => state.tasks.tasks);
 
   return (

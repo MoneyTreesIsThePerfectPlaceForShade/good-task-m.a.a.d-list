@@ -1,9 +1,9 @@
-import React from "react";
+import React, { FC } from "react";
 import { Layout } from "../Layout/Layout";
 import styles from "./About.module.scss";
 import photo from "./imgs/photo.jpg";
 
-export const About = () => {
+export const About: FC = () => {
   return (
     <Layout>
       <div className={styles.container}>

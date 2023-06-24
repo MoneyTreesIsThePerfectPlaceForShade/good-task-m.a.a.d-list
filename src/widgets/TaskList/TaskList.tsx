@@ -1,10 +1,8 @@
 import React, { FC, useMemo } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Task } from "../../entities"; // обычный импорт, работает
-// import { Task } from "@entities"; // абсолютный, не работает, когда запускаешь проект
-
 import styles from "./TaskList.module.scss";
-import { filterCompletedTasks } from "../../entities/Task/model/tasksSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { Task } from "@/entities";
+import { filterCompletedTasks } from "@/entities/Task/model/tasksSlice";
 
 export const TaskList: FC = () => {
   const filteredTasks = useSelector((state: any) => state.tasks.filteredTasks);
