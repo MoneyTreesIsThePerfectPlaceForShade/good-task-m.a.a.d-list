@@ -1,8 +1,9 @@
 import React, { FC, useEffect, useState } from "react";
-import { editTask } from "../../entities/Task/model/tasksSlice";
+import styles from "./EditTask.module.scss";
+import { editTask } from "@/entities/Task/model/tasksSlice";
+// icons
 import { AiOutlineEdit } from "react-icons/ai";
 import { useDispatch } from "react-redux";
-import styles from "./EditTask.module.scss";
 import { GrFormClose } from "react-icons/gr";
 
 interface ITask {
@@ -13,7 +14,7 @@ interface ITask {
   };
 }
 
-const EditTask: FC<ITask> = ({ task: { id, title, body } }) => {
+export const EditTask: FC<ITask> = ({ task: { id, title, body } }) => {
   const dispatch = useDispatch();
 
   const [isOpened, setIsOpened] = useState(false);
@@ -161,5 +162,3 @@ const EditTask: FC<ITask> = ({ task: { id, title, body } }) => {
     </div>
   );
 };
-
-export default EditTask;

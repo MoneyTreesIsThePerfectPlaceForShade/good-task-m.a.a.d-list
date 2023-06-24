@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import styles from "./AddTask.module.scss";
 import { useDispatch } from "react-redux";
-import { addTask } from "../../entities/Task/model/tasksSlice";
+import { addTask } from "@/entities/Task/model/tasksSlice";
 import { nanoid } from "@reduxjs/toolkit";
 
-const AddTask = () => {
+export const AddTask = () => {
   const dispatch = useDispatch();
 
   const [title, setTitle] = useState("");
@@ -122,5 +122,3 @@ const AddTask = () => {
     </form>
   );
 };
-
-export default AddTask;

@@ -1,9 +1,9 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { filterCompletedTasks } from "../../entities/Task/model/tasksSlice";
 import styles from "./FilterTask.module.scss";
+import { useDispatch } from "react-redux";
+import { filterCompletedTasks } from "@/entities/Task/model/tasksSlice";
 
-const FilterTask = () => {
+export const FilterTask = () => {
   const dispatch = useDispatch();
 
   return (
@@ -18,5 +18,3 @@ const FilterTask = () => {
     </div>
   );
 };
-
-export default FilterTask;

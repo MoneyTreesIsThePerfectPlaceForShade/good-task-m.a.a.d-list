@@ -1,12 +1,15 @@
-import React, { FC, useEffect, useMemo, useState } from "react";
+import React, { FC, useState } from "react";
+import { useDispatch } from "react-redux";
 import styles from "./Task.module.scss";
 import cn from "classnames";
+
+import { deleteTask, toggleDone } from "../model/tasksSlice";
+import { EditTask } from "@/features";
+
+import MDEditor from "@uiw/react-md-editor";
+// icons
 import { BsTrash } from "react-icons/bs";
 import { MdDone } from "react-icons/md";
-import { useDispatch } from "react-redux";
-import { deleteTask, toggleDone } from "../model/tasksSlice";
-import EditTask from "../../../features/EditTask/EditTask";
-import MDEditor from "@uiw/react-md-editor";
 
 interface ITask {
   task: {
@@ -32,7 +35,10 @@ export const Task: FC<ITask> = ({ task: { id, title, body, done } }) => {
       <button onClick={doneTask}>
         <MdDone className={styles.icon} />
       </button>
-      <div className={cn(styles.titleNBody, done ? styles.done : "")}>
+      <div
+        className={cn(styles.titleNBody, done ? styles.done : "")}
+        data-color-mode="light"
+      >
         <p className={styles.title}>{title}</p>
         <MDEditor.Markdown
           className={styles.body}

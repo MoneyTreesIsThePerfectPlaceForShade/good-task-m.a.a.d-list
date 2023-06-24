@@ -12,8 +12,6 @@
   border-radius: 1.6rem;
   padding: 1rem 2rem;
 
-  text-align: center;
-
   transition: all ease-in-out 0.2s;
 
   position: relative;
@@ -62,6 +60,7 @@
 
   .title{
     @include set-font(2.4rem, normal, 700);
+    text-align: center;
   }
 
   .body{
