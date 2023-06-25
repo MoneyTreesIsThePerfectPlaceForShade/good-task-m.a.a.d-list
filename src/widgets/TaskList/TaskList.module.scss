@@ -1,17 +1,17 @@
 @import "src/shared/index";
 
-.container{
+.container {
   display: flex;
   flex-direction: column;
   gap: 2rem;
 
   padding: 4rem 0;
 
-  h1{
+  h1 {
     text-align: center;
   }
 
-  .header{
-    @include set-font(2.6rem, normal, 700)
+  .header {
+    @include set-font(2.6rem, normal, 700);
   }
 }

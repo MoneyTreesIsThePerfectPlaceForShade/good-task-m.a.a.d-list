@@ -1,11 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import styles from "./AddTask.module.scss";
 import { useDispatch } from "react-redux";
 import { addTask } from "@/entities/Task/model/tasksSlice";
 import { nanoid } from "@reduxjs/toolkit";
+// handlers
+import { blurHandler } from "../handlers/blurHandler";
+import { titleHandler } from "../handlers/titleHandler";
+import { bodyHandler } from "../handlers/bodyHandler";
+// custom inputs
+import TitleAndInput from "../TitleAndInput/TitleAndInput";
 
-export const AddTask = () => {
+export const AddTask: FC = () => {
   const dispatch = useDispatch();
+
+  const [formValid, setFormValid] = useState(false);
+  const [task, setTask] = useState({});
 
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
@@ -16,42 +25,9 @@ export const AddTask = () => {
   const [titleError, setTitleError] = useState("Введите название");
   const [bodyError, setBodyError] = useState("Введите описание");
 
-  const [formValid, setFormValid] = useState(false);
-
-  const [task, setTask] = useState({});
-
-  const blurHandler = (e: any) => {
-    switch (e.target.name) {
-      case "title":
-        setTitleDirty(true);
-        break;
-
-      case "body":
-        setBodyDirty(true);
-        break;
-    }
-  };
-
-  const titleHandler = (e: any) => {
-    setTitle(e.target.value);
-
-    if (!e.target.value) {
-      setTitleError("Введите название");
-    } else {
-      setTitleError("");
-    }
-  };
-
-  const bodyHandler = (e: any) => {
-    setBody(e.target.value);
-    if (!e.target.value) {
-      setBodyError("Введите описание");
-    } else {
-      setBodyError("");
-    }
-  };
-
-  // вероятно костыль, но иначе не придумал как избавиться от первого пустого пейлоада
+  // вероятно костыль, но иначе не придумал
+  // как избавиться от первого пустого пейлоада
+  // пробовал изначально таск сделать не пустой, но это не выход
   useEffect(() => {
     setTask({ id: nanoid(8), title, body, done: false });
   }, [title, body]);
@@ -67,51 +43,31 @@ export const AddTask = () => {
   return (
     <form className={styles.container}>
       <div className={styles.wrapper}>
-        <div>
-          <div className={styles.labelNInput}>
-            <label htmlFor="title" className={styles.label}>
-              Название
-            </label>
-            <input
-              className={styles.input}
-              type="text"
-              id="title"
-              name="title"
-              value={title}
-              onChange={(e) => titleHandler(e)}
-              onBlur={(e) => blurHandler(e)}
-            />
-          </div>
-          {titleDirty && titleError && (
-            <span className={styles.error}>{titleError}</span>
-          )}
-        </div>
-        <div>
-          <div className={styles.labelNInput}>
-            <label htmlFor="body" className={styles.label}>
-              Описание
-            </label>
-            <textarea
-              className={styles.textarea}
-              id="body"
-              name="body"
-              value={body}
-              onChange={(e) => bodyHandler(e)}
-              onBlur={(e) => blurHandler(e)}
-              placeholder="Markdown разметка активна"
-            />
-          </div>
-          {bodyDirty && bodyError && (
-            <span className={styles.error}>{bodyError}</span>
-          )}
-        </div>
+        <TitleAndInput
+          title={title}
+          body={body}
+          titleOnChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            titleHandler(e, setTitle, setTitleError)
+          }
+          bodyOnChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            bodyHandler(e, setBody, setBodyError)
+          }
+          blurHandler={(e: React.FocusEvent<HTMLTextAreaElement, Element>) =>
+            blurHandler(e, setTitleDirty, setBodyDirty)
+          }
+          titleDirty={titleDirty}
+          bodyDirty={bodyDirty}
+          titleError={titleError}
+          bodyError={bodyError}
+        />
 
         <button
           className={styles.addTask}
           onClick={(e) => {
             e.preventDefault();
             setTask({ id: nanoid(8), title, body, done: false });
-            // @ts-ignore пока не понял как исправить
+            // TODO: постараться исправить ошибку типов
+            // @ts-ignore
             dispatch(addTask(task));
           }}
           disabled={!formValid}

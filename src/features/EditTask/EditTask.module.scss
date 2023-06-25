@@ -1,16 +1,16 @@
 @import "src/shared/index";
 
-.container{
+.container {
   @extend %container-task-features;
 
-  color: $font-accent;
+  color: $color-mfdoom;
 
-  .editForm{
+  .editForm {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
-    background-color: #f08c00;
+    transform: translate(-50%, -50%);
+    background-color: darken($color-kendricklamar, 15%);
     padding: 2rem 1rem;
 
     border-radius: 2rem;
@@ -19,48 +19,30 @@
 
     z-index: 1;
 
-    box-shadow: 0 0 10rem $font-light;
+    box-shadow: 0 0 10rem $color-mfdoom;
   }
 
-  .label{
-    @extend %label-template;
-  }
-
-  .input{
-    @extend %input-field-template;
-  }
-
-  .textarea{
-    @extend %textarea-field-template;
-  }
-
-  .labelNInput{
-    @extend %label-and-input-template;
-  }
-
-  .error{
-   @extend %error-message-template;
-  }
-
-  .addTask{
+  .addTask {
     @extend %save-task-button-template;
-    color: $font-light;
-    background-color: $background-light;
+    color: $color-mfdoom;
+    background-color: $color-kendricklamar;
   }
 
-  .btnClose{
+  .btnClose {
     @extend %save-task-button-template;
-    color: $font-light;
-    background-color: $font-accent;
-    box-shadow: inset 0 0 0.5rem $font-light;
+    color: $color-mfdoom;
+    background-color: $color-popsmoke;
+    box-shadow: inset 0 0 0.5rem $color-mfdoom;
+
     max-width: 4rem;
     max-height: 4rem;
     border-radius: 10rem;
+
     position: absolute;
-    top:-1rem ;
+    top: -1rem;
     right: 1rem;
 
-    &:active{
+    &:active {
       transform: none;
     }
   }

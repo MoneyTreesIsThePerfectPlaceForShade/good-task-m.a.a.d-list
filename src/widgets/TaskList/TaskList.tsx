@@ -1,17 +1,17 @@
-import React, { FC, useMemo } from "react";
+import React, { FC } from "react";
 import styles from "./TaskList.module.scss";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Task } from "@/entities";
-import { filterCompletedTasks } from "@/entities/Task/model/tasksSlice";
 
 export const TaskList: FC = () => {
   const filteredTasks = useSelector((state: any) => state.tasks.filteredTasks);
 
-  const dispatch = useDispatch();
-
-  useMemo(() => {
-    dispatch(filterCompletedTasks("all"));
-  }, [dispatch]);
+  // на этапе рефакторинга забыл зачем мне это было нужно, но на всякий не стал
+  // удалять этот моментик, есть-пить не просит
+  // const dispatch = useDispatch();
+  // useMemo(() => {
+  //   dispatch(filterCompletedTasks("all"));
+  // }, [dispatch]);
 
   return (
     <div className={styles.container}>

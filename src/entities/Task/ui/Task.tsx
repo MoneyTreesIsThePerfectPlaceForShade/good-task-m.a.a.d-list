@@ -13,7 +13,7 @@ import { MdDone } from "react-icons/md";
 
 interface ITask {
   task: {
-    id: any;
+    id: any; // тут чет не понял, какие-то мутки с redux штуками TODO: обрати внимание
     title: string;
     body: string;
     done: boolean;
@@ -55,7 +55,7 @@ export const Task: FC<ITask> = ({ task: { id, title, body, done } }) => {
         >
           <BsTrash className={styles.trash} />
         </button>
-        <EditTask task={{ id, title, body }} />
+        <EditTask id={id} />
       </div>
     </div>
   );

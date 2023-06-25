@@ -1,26 +1,20 @@
 @import "src/shared/index";
 
-.container{
+.container {
   @extend %center-content-template;
 
   padding-bottom: 4rem;
   gap: 1rem;
   flex-direction: column;
 
-
-
-  &:hover{
-    .dev{
-      //background-image: url(https://i.giphy.com/media/0oYBxMzAFU3iHhsPk6/giphy.webp);
-      //background-size: cover;
-      //color: transparent;
-      //-webkit-background-clip: text;
-      color: #f08c00;
+  &:hover {
+    .dev {
+      color: $color-westsideGunn;
       transition: color 0.4s;
     }
   }
 
-  .dev{
+  .dev {
     @include set-font(2rem, normal, 500);
     transition: all 0.4s;
 
@@ -37,19 +31,19 @@
     }
   }
 
-  .contacts{
+  .contacts {
     @include set-font(1.6rem, normal, 600);
     display: flex;
-    gap:1rem;
+    gap: 1rem;
 
-    a, a:active, a:visited{
-      text-decoration: none;
-      color: $font-light;
-      transition: color 0.2s;
+    a,
+    a:active,
+    a:visited {
+      @extend %link-template;
     }
 
-    a:hover{
-      color: #f08c00;
+    a:hover {
+      color: $color-westsideGunn;
       transition: color 0.2s;
     }
   }

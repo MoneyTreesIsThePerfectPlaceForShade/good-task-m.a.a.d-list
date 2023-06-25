@@ -1,5 +1,5 @@
 @import "src/shared/styles/vars";
-@import 'src/shared/styles/mixins';
+@import "src/shared/styles/mixins";
 
 %template-container {
   width: $width-container;
@@ -16,7 +16,7 @@
   align-items: center;
 }
 
-%button-template{
+%button-template {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -44,10 +44,10 @@
 %wrapper-template {
   display: flex;
   flex-direction: column;
-  gap:1rem;
+  gap: 1rem;
 }
 
-%label-template{
+%label-template {
   display: inline-block;
   padding-right: 1rem;
   padding-bottom: 1rem;
@@ -63,38 +63,38 @@
 
   transition: all ease-in-out 0.2s;
 
-  box-shadow: inset 0 0 0.5rem $font-light;
+  box-shadow: inset 0 0 0.5rem $color-mfdoom;
 
-  &:focus{
+  &:focus {
     outline: none;
   }
 
-  @media(max-width: 40em){
+  @media (max-width: 40em) {
     min-width: 55rem;
     max-width: 55rem;
   }
 
-  @media(max-width: 36em){
+  @media (max-width: 36em) {
     min-width: 50rem;
     max-width: 50rem;
   }
 
-  @media(max-width: 33.125em){
+  @media (max-width: 33.125em) {
     min-width: 45rem;
     max-width: 45rem;
   }
 
-  @media(max-width: 29.375em){
+  @media (max-width: 29.375em) {
     min-width: 40rem;
     max-width: 40rem;
   }
 
-  @media(max-width: 26.25em){
+  @media (max-width: 26.25em) {
     min-width: 35rem;
     max-width: 35rem;
   }
 
-  @media(max-width: 23.125em){
+  @media (max-width: 23.125em) {
     min-width: 30rem;
     max-width: 30rem;
   }
@@ -113,39 +113,38 @@
 
   transition: all ease-in-out 0.2s;
 
-  box-shadow: inset 0 0 0.5rem $font-light;
+  box-shadow: inset 0 0 0.5rem $color-mfdoom;
 
-  &:focus{
+  &:focus {
     outline: none;
   }
 
-
-  @media(max-width: 40em){
+  @media (max-width: 40em) {
     min-width: 55rem;
     max-width: 55rem;
   }
 
-  @media(max-width: 36em){
+  @media (max-width: 36em) {
     min-width: 50rem;
     max-width: 50rem;
   }
 
-  @media(max-width: 33.125em){
+  @media (max-width: 33.125em) {
     min-width: 45rem;
     max-width: 45rem;
   }
 
-  @media(max-width: 29.375em){
+  @media (max-width: 29.375em) {
     min-width: 40rem;
     max-width: 40rem;
   }
 
-  @media(max-width: 26.25em){
+  @media (max-width: 26.25em) {
     min-width: 35rem;
     max-width: 35rem;
   }
 
-  @media(max-width: 23.125em){
+  @media (max-width: 23.125em) {
     min-width: 30rem;
     max-width: 30rem;
   }
@@ -159,7 +158,7 @@
 }
 
 %error-message-template {
-  color: $done-task-mark;
+  color: $color-dmx;
   display: inline-block;
   padding-top: 1rem;
 }
@@ -169,61 +168,61 @@
   padding: 1.6rem 1rem;
   border: none;
   border-radius: 1rem;
-  color: $font-accent;
+  color: $color-popsmoke;
 
-  background-color: $button-background-light;
+  background-color: $color-westsideGunn;
 
   @include set-font(2rem, normal, 600);
 
   cursor: pointer;
 
-  box-shadow: 0 0.4rem 0.6rem lighten($font-light, 25%);
+  box-shadow: 0 0.4rem 0.6rem lighten($color-mfdoom, 25%);
 
   transition: all ease-in-out 0.3s;
 
-  &:disabled{
+  &:disabled {
     opacity: 65%;
-    box-shadow: 0 0.4rem 0.6rem lighten($font-light, 50%);
+    box-shadow: 0 0.4rem 0.6rem lighten($color-mfdoom, 50%);
     transition: all ease-in-out 0.3s;
     @include set-font(1.6rem, normal, 600);
   }
 
-  &:active{
+  &:active {
     transform: translateY(0.4rem);
     box-shadow: none;
   }
 }
 
-%filter-task-button-template{
+%filter-task-button-template {
   margin-top: 2rem;
   padding: 1rem 2rem;
   border: none;
   border-radius: 1rem;
-  color:$font-light;
+  color: $color-mfdoom;
 
-  background-color:$font-accent;
+  background-color: $color-popsmoke;
 
   @include set-font(1.6rem, normal, 600);
 
   cursor: pointer;
 
-  box-shadow: inset 0 0 0.6rem lighten($font-light, 25%);
+  box-shadow: inset 0 0 0.6rem lighten($color-mfdoom, 25%);
 
   transition: all ease-in-out 0.2s;
 
-  &:active{
+  &:active {
     transform: scale(95%);
     //box-shadow: none;
   }
 }
 
-%link-template{
+%link-template {
   text-decoration: none;
-  color: $font-light;
+  color: $color-mfdoom;
   transition: color 0.2s;
 
-  &:hover{
-    color: $background-light;
+  &:hover {
+    color: $color-kendricklamar;
     transition: color 0.2s;
   }
 }

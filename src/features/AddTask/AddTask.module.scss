@@ -1,34 +1,12 @@
 @import "src/shared/index";
 
-.container{
+.container {
   @extend %container-task-features;
 
   padding: 2rem;
 
-  .wrapper{
+  .wrapper {
     @extend %wrapper-template;
-  }
-
-  .label{
-    @extend %label-template;
-  }
-
-  .input{
-    @extend %input-field-template;
-    box-shadow: inset 0 0 0.3rem $font-light;
-  }
-
-  .textarea{
-    @extend %textarea-field-template;
-    box-shadow: inset 0 0 0.3rem $font-light;
-  }
-
-  .labelNInput{
-    @extend %label-and-input-template;
-  }
-
-  .error{
-    @extend %error-message-template;
   }
 
   .addTask {

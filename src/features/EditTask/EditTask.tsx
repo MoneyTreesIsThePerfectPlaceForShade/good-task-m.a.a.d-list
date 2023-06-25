@@ -5,19 +5,23 @@ import { editTask } from "@/entities/Task/model/tasksSlice";
 import { AiOutlineEdit } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import { GrFormClose } from "react-icons/gr";
+// handlers
+import { blurHandler } from "../handlers/blurHandler";
+import { titleHandler } from "../handlers/titleHandler";
+import { bodyHandler } from "../handlers/bodyHandler";
+import TitleAndInput from "@/features/TitleAndInput/TitleAndInput";
 
-interface ITask {
-  task: {
-    id: any;
-    title: string;
-    body: string;
-  };
+interface IEditTask {
+  id: string;
 }
 
-export const EditTask: FC<ITask> = ({ task: { id, title, body } }) => {
+export const EditTask: FC<IEditTask> = ({ id }) => {
   const dispatch = useDispatch();
-
   const [isOpened, setIsOpened] = useState(false);
+
+  const [formValid, setFormValid] = useState(false);
+  const [editedTask, setEditedTask] = useState({});
+
   const [newTitle, setNewTitle] = useState("");
   const [newBody, setNewBody] = useState("");
 
@@ -26,53 +30,6 @@ export const EditTask: FC<ITask> = ({ task: { id, title, body } }) => {
 
   const [titleError, setTitleError] = useState("Введите название");
   const [bodyError, setBodyError] = useState("Введите описание");
-
-  const isOver40 = (e: any) => {
-    const isOver40 = e.target.value
-      .split(" ")
-      .filter((word: string) => word.length > 40);
-
-    return isOver40.length > 0;
-  };
-
-  const blurHandler = (e: any) => {
-    switch (e.target.name) {
-      case "title":
-        setTitleDirty(true);
-        break;
-
-      case "body":
-        setBodyDirty(true);
-        break;
-    }
-  };
-
-  const titleHandler = (e: any) => {
-    setNewTitle(e.target.value);
-
-    if (!e.target.value) {
-      setTitleError("Введите название");
-    } else if (isOver40(e)) {
-      setTitleError("Одно слово должно быть меньше 40 символов");
-    } else {
-      setTitleError("");
-    }
-  };
-
-  const bodyHandler = (e: any) => {
-    setNewBody(e.target.value);
-    if (!e.target.value) {
-      setBodyError("Введите описание");
-    } else if (isOver40(e)) {
-      setBodyError("Одно слово должно быть меньше 40 символов");
-    } else {
-      setBodyError("");
-    }
-  };
-
-  const [formValid, setFormValid] = useState(false);
-
-  const [editedTask, setEditedTask] = useState({});
 
   useEffect(() => {
     setEditedTask({ id, title: newTitle, body: newBody });
@@ -99,47 +56,29 @@ export const EditTask: FC<ITask> = ({ task: { id, title, body } }) => {
             if (e.key === "Escape") setIsOpened(!isOpened);
           }}
         >
-          <div>
-            <div className={styles.labelNInput}>
-              <label htmlFor="title" className={styles.label}>
-                Название
-              </label>
-              <input
-                className={styles.input}
-                type="text"
-                id="title"
-                name="title"
-                value={newTitle}
-                onChange={(e) => titleHandler(e)}
-                onBlur={(e) => blurHandler(e)}
-              />
-            </div>
-            {titleDirty && titleError && (
-              <span className={styles.error}>{titleError}</span>
-            )}
-          </div>
-          <div>
-            <div className={styles.labelNInput}>
-              <label htmlFor="body" className={styles.label}>
-                Описание
-              </label>
-              <textarea
-                className={styles.textarea}
-                id="body"
-                name="body"
-                value={newBody}
-                onChange={(e) => bodyHandler(e)}
-                onBlur={(e) => blurHandler(e)}
-              />
-            </div>
-            {bodyDirty && bodyError && (
-              <span className={styles.error}>{bodyError}</span>
-            )}
-          </div>
+          <TitleAndInput
+            title={newTitle}
+            body={newBody}
+            titleOnChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              titleHandler(e, setNewTitle, setTitleError)
+            }
+            bodyOnChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              bodyHandler(e, setNewBody, setBodyError)
+            }
+            blurHandler={(e: React.FocusEvent<HTMLTextAreaElement, Element>) =>
+              blurHandler(e, setTitleDirty, setBodyDirty)
+            }
+            titleDirty={titleDirty}
+            bodyDirty={bodyDirty}
+            titleError={titleError}
+            bodyError={bodyError}
+          />
+
           <button
             className={styles.addTask}
             onClick={(e) => {
               e.preventDefault();
+              // TODO: постараться исправить ошибку типов
               //@ts-ignore
               dispatch(editTask(editedTask));
               setIsOpened(!isOpened);
@@ -148,6 +87,7 @@ export const EditTask: FC<ITask> = ({ task: { id, title, body } }) => {
           >
             Сохранить
           </button>
+
           <button
             className={styles.btnClose}
             onClick={(e) => {
