@@ -20,7 +20,6 @@ export const About: FC = () => {
               <li>TypeScript</li>
               <li>SCSS</li>
               <li>Jest</li>
-              <li>Storybook</li>
               <li>
                 <span className={styles.libs}>Небольшие библиотеки:</span>
                 <ul className={styles.techList}>
@@ -28,11 +27,13 @@ export const About: FC = () => {
                   <li>classnames</li>
                   <li>react-icons</li>
                   <li>redux-persist</li>
+                  <li>react-md-editor</li>
+                  <li>craco</li>
                 </ul>
               </li>
             </ul>
-            Придерживался DRY, функционального программирования и Feature-Sliced
-            Design.
+            Придерживался DRY, KISS, функционального программирования и
+            Feature-Sliced Design.
           </p>
         </div>
       </div>

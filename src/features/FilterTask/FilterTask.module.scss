@@ -1,24 +1,23 @@
 @import "src/shared/index";
 
-.container{
+.container {
   max-width: 60rem;
   margin: 0 auto;
 
   display: flex;
-  gap:2rem;
+  gap: 2rem;
   align-items: center;
   justify-content: center;
 
-  button{
+  button {
     @extend %filter-task-button-template;
   }
 
-
-  @media(max-width: 29.375em){
+  @media (max-width: 29.375em) {
     flex-direction: column;
-    gap:0;
+    gap: 0;
 
-    button{
+    button {
       width: 30rem;
     }
   }

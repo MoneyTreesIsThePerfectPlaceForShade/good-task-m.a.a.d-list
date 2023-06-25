@@ -1,15 +1,14 @@
 @import "src/shared/index";
 
-.container{
+.container {
   @extend %center-content-template;
   flex-direction: column;
 
   max-width: 60rem;
   margin: 0 auto;
 
-  .name{
+  .name {
     @include set-font(2rem, normal, 700);
-
     transition: font-size 0.2s;
 
     @media (max-width: 27.5em) {
@@ -21,7 +20,7 @@
     }
   }
 
-  .description{
+  .description {
     @extend %center-content-template;
     justify-content: space-between;
     gap: 3rem;
@@ -33,45 +32,45 @@
 
     @media (max-width: 38.75em) {
       flex-direction: column;
-      gap:1rem;
-      .techDescription{
+      gap: 1rem;
+      .techDescription {
         max-width: 80%;
       }
     }
 
-    .techDescription{
-      background-color: $font-accent;
+    .techDescription {
+      background-color: $color-popsmoke;
       padding: 1rem 1rem;
       border-radius: 1rem;
-      box-shadow: inset 0 0 0.4rem $font-light;
+      box-shadow: inset 0 0 0.4rem $color-mfdoom;
     }
 
-    .techList{
+    .techList {
       list-style: none;
       padding-left: 1rem;
       padding-bottom: 0.4rem;
 
-      &:first-child{
+      &:first-child {
         padding-top: 0.6rem;
       }
 
-      .libs{
+      .libs {
         display: inline-block;
         padding-top: 0.4rem;
       }
-      li{
+      li {
         @include set-font(1.4rem, normal, 500);
         padding-bottom: 0.2rem;
         transition: color 0.2s;
 
-        &:hover{
-          color: $button-background-light;
+        &:hover {
+          color: $color-westsideGunn;
           transition: color 0.2s;
         }
       }
     }
 
-    .photo{
+    .photo {
       max-width: 50%;
       border-radius: 2rem;
     }

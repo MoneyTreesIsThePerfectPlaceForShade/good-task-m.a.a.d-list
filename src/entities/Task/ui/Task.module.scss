@@ -1,13 +1,13 @@
 @import "src/shared/index";
 
-.task{
+.task {
   @extend %center-content-template;
   justify-content: space-between;
 
   max-width: 60rem;
   margin: 0 auto;
 
-  background-color: $task-background-light;
+  background-color: $color-asapRocky;
 
   border-radius: 1.6rem;
   padding: 1rem 2rem;
@@ -16,54 +16,54 @@
 
   position: relative;
 
-  box-shadow: 0 0 2rem rgba($font-light, 0.4);
+  box-shadow: 0 0 2rem rgba($color-mfdoom, 0.4);
 
-  @media(max-width: 40em){
+  @media (max-width: 40em) {
     max-width: 55rem;
   }
 
-  @media(max-width: 36em){
+  @media (max-width: 36em) {
     max-width: 50rem;
   }
 
-  @media(max-width: 33.125em){
+  @media (max-width: 33.125em) {
     max-width: 45rem;
   }
 
-  @media(max-width: 29.375em){
+  @media (max-width: 29.375em) {
     max-width: 40rem;
   }
 
-  @media(max-width: 26.25em){
+  @media (max-width: 26.25em) {
     max-width: 35rem;
   }
 
-  @media(max-width: 23.125em){
+  @media (max-width: 23.125em) {
     max-width: 30rem;
   }
 
-  &:hover{
-    background-color: lighten($font-light, 25%);
+  &:hover {
+    background-color: lighten($color-mfdoom, 25%);
     transition: all ease-in-out 0.2s;
-    color: white;
+    color: $color-asapRocky;
 
-    box-shadow: inset 0 0 2rem rgba($font-light, 0.4);
+    box-shadow: inset 0 0 2rem rgba($color-mfdoom, 0.4);
 
-    button{
-      background-color: $background-light;
+    button {
+      background-color: $color-kendricklamar;
     }
 
-    .body{
-      background: darken($background-light, 25%);
+    .body {
+      background: darken($color-kendricklamar, 25%);
     }
   }
 
-  .title{
+  .title {
     @include set-font(2.4rem, normal, 700);
     text-align: center;
   }
 
-  .body{
+  .body {
     padding: 2rem 2rem;
 
     margin-top: 1rem;
@@ -71,51 +71,49 @@
     margin-right: 0.6rem;
     @include set-font(1.6rem);
 
-    background-color: $background-light;
-    color: $font-light;
+    background-color: $color-kendricklamar;
+    color: $color-mfdoom;
     border-radius: 2rem;
   }
 
-  .titleNBody{
+  .titleNBody {
     max-width: 70%;
     overflow-wrap: break-word;
   }
 
-  .done{
+  .done {
     text-decoration: line-through;
     transition: all 0.2s;
-    color: lighten(#343a40, 50%);
+    color: lighten($color-mfdoom, 50%);
   }
 
-  button{
+  button {
     @extend %button-template;
   }
 
-  .trashEditBlock{
+  .trashEditBlock {
     display: flex;
     flex-direction: column-reverse;
     gap: 1.6rem;
   }
 
-  .icon{
-    color: $font-light;
+  .icon {
+    color: $color-mfdoom;
     transition: all ease-in-out 0.2s;
 
-    &:hover{
-      color: $done-task-mark;
+    &:hover {
+      color: $color-dmx;
       transition: all ease-in-out 0.2s;
     }
   }
 
-  .trash{
-    color: $done-task-mark;
+  .trash {
+    color: $color-dmx;
     transition: all ease-in-out 0.2s;
 
-    &:hover{
-      color: darken($done-task-mark, 10%);
+    &:hover {
+      color: darken($color-dmx, 10%);
       transition: all ease-in-out 0.2s;
     }
   }
 }
-
-
