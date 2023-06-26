@@ -138,6 +138,8 @@
 
     border: 0.2rem solid darken($color-mfdoom, 15%);
 
+    -webkit-appearance: listbox;
+
     cursor: pointer;
 
     &:focus {
