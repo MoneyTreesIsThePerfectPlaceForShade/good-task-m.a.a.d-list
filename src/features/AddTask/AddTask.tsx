@@ -29,7 +29,7 @@ export const AddTask: FC = () => {
   // как избавиться от первого пустого пейлоада
   // пробовал изначально таск сделать не пустой, но это не выход
   useEffect(() => {
-    setTask({ id: nanoid(8), title, body, done: false });
+    setTask({ id: nanoid(8), title, body, done: false, colorTheme: "light" });
   }, [title, body]);
 
   useEffect(() => {
@@ -66,8 +66,6 @@ export const AddTask: FC = () => {
           onClick={(e) => {
             e.preventDefault();
             setTask({ id: nanoid(8), title, body, done: false });
-            // TODO: постараться исправить ошибку типов
-            // @ts-ignore
             dispatch(addTask(task));
           }}
           disabled={!formValid}

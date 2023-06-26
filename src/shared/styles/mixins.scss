@@ -3,3 +3,18 @@
   line-height: $line-height;
   font-weight: $font-weight;
 }
+
+@mixin setColorTheme($color, $lighten, $darken, $amount) {
+  background-color: $color;
+
+  .body,
+  button {
+    @if $lighten {
+      background-color: lighten($color, $amount);
+    }
+
+    @if $darken {
+      background-color: darken($color, $amount);
+    }
+  }
+}

@@ -18,6 +18,10 @@
 
   box-shadow: 0 0 2rem rgba($color-mfdoom, 0.4);
 
+  button {
+    background-color: darken($color-kendricklamar, 5%);
+  }
+
   @media (max-width: 40em) {
     max-width: 55rem;
   }
@@ -116,4 +120,69 @@
       transition: all ease-in-out 0.2s;
     }
   }
+
+  .doneBtnAndSelectTheme {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 1.6rem;
+  }
+
+  .selectColorTheme {
+    appearance: none;
+    width: 3.2rem;
+    height: 3.2rem;
+    // border: none;
+    border-radius: 100rem;
+
+    border: 0.2rem solid darken($color-mfdoom, 15%);
+
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+      user-select: none;
+    }
+  }
+}
+
+.lightTheme {
+  background-color: $color-asapRocky;
+}
+
+.darkTheme {
+  @include setColorTheme(#868e96, true, false, 25%); // lighten - darken
+}
+
+.yellowTheme {
+  @include setColorTheme(#eee9da, false, true, 10%);
+}
+
+.blueTheme {
+  @include setColorTheme(#bdcdd6, true, false, 10%);
+}
+
+.greenTheme {
+  @include setColorTheme(#bbd6b8, false, true, 10%);
+}
+
+.brownTheme {
+  @include setColorTheme(#a7727d, true, false, 15%);
+}
+
+.indigoTheme {
+  @include setColorTheme(#dbe4ff, false, true, 5%);
+}
+
+.orangeTheme {
+  @include setColorTheme(#ffd8a8, false, true, 10%);
+}
+
+.wheatTheme {
+  @include setColorTheme(#bd9354, true, false, 10%);
+}
+
+.purpleTheme {
+  @include setColorTheme(#caadde, true, false, 10%);
 }
