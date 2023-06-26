@@ -75,36 +75,16 @@ export const Task: FC<ITask> = ({
           className={cn(styles.selectColorTheme, themeChecker())}
         >
           <option value="default" selected hidden disabled></option>
-          <option value="light" className={styles.lightTheme}>
-            1
-          </option>
-          <option value="dark" className={styles.darkTheme}>
-            2
-          </option>
-          <option value="yellow" className={styles.yellowTheme}>
-            3
-          </option>
-          <option value="blue" className={styles.blueTheme}>
-            4
-          </option>
-          <option value="green" className={styles.greenTheme}>
-            5
-          </option>
-          <option value="brown" className={styles.brownTheme}>
-            6
-          </option>
-          <option value="indigo" className={styles.indigoTheme}>
-            7
-          </option>
-          <option value="orange" className={styles.orangeTheme}>
-            8
-          </option>
-          <option value="wheat" className={styles.wheatTheme}>
-            9
-          </option>
-          <option value="purple" className={styles.purpleTheme}>
-            10
-          </option>
+          <option value="light" className={styles.lightTheme}></option>
+          <option value="dark" className={styles.darkTheme}></option>
+          <option value="yellow" className={styles.yellowTheme}></option>
+          <option value="blue" className={styles.blueTheme}></option>
+          <option value="green" className={styles.greenTheme}></option>
+          <option value="brown" className={styles.brownTheme}></option>
+          <option value="indigo" className={styles.indigoTheme}></option>
+          <option value="orange" className={styles.orangeTheme}></option>
+          <option value="wheat" className={styles.wheatTheme}></option>
+          <option value="purple" className={styles.purpleTheme}></option>
         </select>
       </div>
       <div

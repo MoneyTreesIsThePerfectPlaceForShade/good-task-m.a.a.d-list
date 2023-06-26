@@ -152,7 +152,7 @@
 
 .darkTheme {
   @include setColorTheme(#868e96, true, false, 25%); // lighten - darken
-  background: #868e96;
+  -webkit-tap-highlight-color: #868e96;
 }
 
 .yellowTheme {
