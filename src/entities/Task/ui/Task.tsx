@@ -13,7 +13,7 @@ import { MdDone } from "react-icons/md";
 
 interface ITask {
   task: {
-    id: any; // тут чет не понял, какие-то мутки с redux штуками TODO: обрати внимание
+    id: string;
     title: string;
     body: string;
     done: boolean;

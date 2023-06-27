@@ -152,7 +152,6 @@
 
 .darkTheme {
   @include setColorTheme(#868e96, true, false, 25%); // lighten - darken
-  background-color: #868e96 !important;
 }
 
 .yellowTheme {
