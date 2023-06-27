@@ -72,6 +72,22 @@ const tasksSlice = createSlice({
         }
       );
     },
+
+    toggleTheme(state, action) {
+      state.tasks.map((task: { id: string; colorTheme: string }) => {
+        if (task.id === action.payload.id) {
+          task.colorTheme = action.payload.colorTheme;
+        }
+        return task;
+      });
+
+      state.filteredTasks.map((task: { id: string; colorTheme: string }) => {
+        if (task.id === action.payload.id) {
+          task.colorTheme = action.payload.colorTheme;
+        }
+        return task;
+      });
+    },
   },
 });
 
@@ -82,4 +98,5 @@ export const {
   editTask,
   filterCompletedTasks,
   toggleDone,
+  toggleTheme,
 } = tasksSlice.actions;

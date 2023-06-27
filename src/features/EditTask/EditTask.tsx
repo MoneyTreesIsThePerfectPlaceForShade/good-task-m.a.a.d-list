@@ -78,8 +78,6 @@ export const EditTask: FC<IEditTask> = ({ id }) => {
             className={styles.addTask}
             onClick={(e) => {
               e.preventDefault();
-              // TODO: постараться исправить ошибку типов
-              //@ts-ignore
               dispatch(editTask(editedTask));
               setIsOpened(!isOpened);
             }}
