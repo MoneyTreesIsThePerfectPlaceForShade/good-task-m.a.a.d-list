@@ -18,9 +18,9 @@
 
   box-shadow: 0 0 2rem rgba($color-mfdoom, 0.4);
 
-  button {
-    background-color: darken($color-kendricklamar, 5%);
-  }
+  //button {
+  //  background-color: darken($color-kendricklamar, 5%);
+  //}
 
   @media (max-width: 40em) {
     max-width: 55rem;
@@ -47,19 +47,8 @@
   }
 
   &:hover {
-    background-color: lighten($color-mfdoom, 25%);
     transition: all ease-in-out 0.2s;
-    color: $color-asapRocky;
-
     box-shadow: inset 0 0 2rem rgba($color-mfdoom, 0.4);
-
-    button {
-      background-color: $color-kendricklamar;
-    }
-
-    .body {
-      background: darken($color-kendricklamar, 25%);
-    }
   }
 
   .title {
@@ -127,6 +116,15 @@
     align-items: center;
 
     gap: 1.6rem;
+
+    .dropdown{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      width: 3.2rem;
+      height: 3.2rem;
+    }
   }
 
   .selectColorTheme {
@@ -147,42 +145,50 @@
 }
 
 .lightTheme {
-  background-color: $color-asapRocky;
+  background-color: $color-asapRocky !important;
 }
 
 .darkTheme {
-  @include setColorTheme(#868e96, true, false, 25%); // lighten - darken
   background-color: #868e96 !important;
+  @include setColorTheme(#868e96, true, false, 25%); // lighten - darken
 }
 
 .yellowTheme {
+  background-color: #eee9da !important;
   @include setColorTheme(#eee9da, false, true, 10%);
 }
 
 .blueTheme {
+  background-color: #bdcdd6 !important;
   @include setColorTheme(#bdcdd6, true, false, 10%);
 }
 
 .greenTheme {
+  background-color: #bbd6b8 !important;
   @include setColorTheme(#bbd6b8, false, true, 10%);
 }
 
 .brownTheme {
+  background-color: #a7727d !important;
   @include setColorTheme(#a7727d, true, false, 15%);
 }
 
 .indigoTheme {
+  background-color: #dbe4ff !important;
   @include setColorTheme(#dbe4ff, false, true, 5%);
 }
 
 .orangeTheme {
+  background-color: #ffd8a8 !important;
   @include setColorTheme(#ffd8a8, false, true, 10%);
 }
 
 .wheatTheme {
+  background-color: #bd9354 !important;
   @include setColorTheme(#bd9354, true, false, 10%);
 }
 
 .purpleTheme {
+  background-color: #caadde !important;
   @include setColorTheme(#caadde, true, false, 10%);
 }
