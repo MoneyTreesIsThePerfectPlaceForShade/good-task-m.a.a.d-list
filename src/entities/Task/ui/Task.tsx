@@ -3,13 +3,14 @@ import { useDispatch } from "react-redux";
 import styles from "./Task.module.scss";
 import cn from "classnames";
 
-import { deleteTask, toggleDone, toggleTheme } from "../model/tasksSlice";
+import {deleteTask, filterCompletedTasks, toggleDone, toggleTheme} from "../model/tasksSlice";
 import { EditTask } from "@/features";
 
 import MDEditor from "@uiw/react-md-editor";
 // icons
 import { BsTrash } from "react-icons/bs";
 import { MdDone } from "react-icons/md";
+import {Dropdown} from "@/shared";
 
 interface ITask {
   task: {
@@ -59,33 +60,72 @@ export const Task: FC<ITask> = ({
       : "";
   };
 
+  const [openedDropdown, setOpenedDropdown] = useState(false);
+
   return (
     <div className={cn(styles.task, themeChecker())}>
       <div className={styles.doneBtnAndSelectTheme}>
         <button onClick={doneTask}>
           <MdDone className={styles.icon} />
         </button>
-        <select
-          name="colorTheme"
-          id="colorTheme"
-          onChange={(e) => {
-            setTheme(e.target.value);
-            dispatch(toggleTheme({ id: id, colorTheme: e.target.value }));
-          }}
-          className={cn(styles.selectColorTheme, themeChecker())}
-        >
-          <option value="default" selected hidden disabled></option>
-          <option value="light" className={styles.lightTheme}></option>
-          <option value="dark" className={styles.darkTheme}></option>
-          <option value="yellow" className={styles.yellowTheme}></option>
-          <option value="blue" className={styles.blueTheme}></option>
-          <option value="green" className={styles.greenTheme}></option>
-          <option value="brown" className={styles.brownTheme}></option>
-          <option value="indigo" className={styles.indigoTheme}></option>
-          <option value="orange" className={styles.orangeTheme}></option>
-          <option value="wheat" className={styles.wheatTheme}></option>
-          <option value="purple" className={styles.purpleTheme}></option>
-        </select>
+        <Dropdown classNames={styles.dropdown} isOpened={openedDropdown} openHandler={()=>setOpenedDropdown(!openedDropdown)}>
+          <div className={styles.colorColumns}>
+            <div className={styles.leftColorColumns}>
+              <button className={styles.lightTheme} onClick={()=> {
+                setTheme('light');
+                dispatch(toggleTheme({ id: id, colorTheme: 'light' }));
+                setOpenedDropdown(!openedDropdown);
+              }}/>
+              <button className={styles.darkTheme} onClick={()=> {
+                setTheme('dark');
+                dispatch(toggleTheme({ id: id, colorTheme: "dark" }));
+                setOpenedDropdown(!openedDropdown);
+              }}/>
+              <button className={styles.yellowTheme} onClick={()=> {
+                setTheme('yellow');
+                dispatch(toggleTheme({ id: id, colorTheme: 'yellow' }));
+                setOpenedDropdown(!openedDropdown);
+              }}/>
+              <button className={styles.blueTheme} onClick={()=> {
+                setTheme('blue');
+                dispatch(toggleTheme({ id: id, colorTheme: 'blue'}));
+                setOpenedDropdown(!openedDropdown);
+              }}/>
+              <button className={styles.greenTheme} onClick={()=> {
+                setTheme('green');
+                dispatch(toggleTheme({ id: id, colorTheme: 'green' }));
+                setOpenedDropdown(!openedDropdown);
+              }}/>
+            </div>
+            <div className={styles.rightColorColumns}>
+              <button className={styles.brownTheme} onClick={()=> {
+                setTheme('brown');
+                dispatch(toggleTheme({ id: id, colorTheme:'brown' }));
+                setOpenedDropdown(!openedDropdown);
+              }}/>
+              <button className={styles.indigoTheme} onClick={()=> {
+                setTheme('indigo');
+                dispatch(toggleTheme({ id: id, colorTheme: 'indigo' }));
+                setOpenedDropdown(!openedDropdown);
+              }}/>
+              <button className={styles.orangeTheme} onClick={()=> {
+                setTheme('orange');
+                dispatch(toggleTheme({ id: id, colorTheme: 'orange'}));
+                setOpenedDropdown(!openedDropdown);
+              }}/>
+              <button className={styles.wheatTheme} onClick={()=> {
+                setTheme('wheat');
+                dispatch(toggleTheme({ id: id, colorTheme: 'wheat'}));
+                setOpenedDropdown(!openedDropdown);
+              }}/>
+              <button className={styles.purpleTheme} onClick={()=> {
+                setTheme('purple');
+                dispatch(toggleTheme({ id: id, colorTheme: 'purple' }));
+                setOpenedDropdown(!openedDropdown);
+              }}/>
+            </div>
+          </div>
+        </Dropdown>
       </div>
       <div
         className={cn(styles.titleNBody, done ? styles.done : "")}

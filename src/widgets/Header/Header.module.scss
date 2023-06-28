@@ -52,4 +52,8 @@
     @include set-font(2rem, normal, 500);
     @extend %link-template;
   }
+
+  .line{
+    @include set-font(2rem, normal, 500);
+  }
 }
