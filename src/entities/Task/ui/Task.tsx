@@ -2,15 +2,15 @@ import React, { FC, useState } from "react";
 import { useDispatch } from "react-redux";
 import styles from "./Task.module.scss";
 import cn from "classnames";
-
-import {deleteTask, filterCompletedTasks, toggleDone, toggleTheme} from "../model/tasksSlice";
+import {deleteTask, toggleDone, toggleTheme} from "../model/tasksSlice";
 import { EditTask } from "@/features";
-
+import { Dropdown } from "@/shared";
 import MDEditor from "@uiw/react-md-editor";
 // icons
 import { BsTrash } from "react-icons/bs";
 import { MdDone } from "react-icons/md";
-import {Dropdown} from "@/shared";
+import { AiOutlineCloseCircle } from "react-icons/ai"
+
 
 interface ITask {
   task: {
@@ -63,12 +63,13 @@ export const Task: FC<ITask> = ({
   const [openedDropdown, setOpenedDropdown] = useState(false);
 
   return (
-    <div className={cn(styles.task, themeChecker())} onClick={()=>setOpenedDropdown(!openedDropdown)}>
+    <div className={cn(styles.task, themeChecker())}>
       <div className={styles.doneBtnAndSelectTheme}>
         <button onClick={doneTask}>
           <MdDone className={styles.icon} />
         </button>
         <Dropdown classNames={styles.dropdown} isOpened={openedDropdown} openHandler={()=>setOpenedDropdown(!openedDropdown)}>
+          <button onClick={()=>setOpenedDropdown(false)} className={styles.closeBtn}><AiOutlineCloseCircle className={styles.closeIcon}/></button>
           <div className={styles.colorColumns}>
             <div className={styles.leftColorColumns}>
               <button className={styles.lightTheme} onClick={()=> {

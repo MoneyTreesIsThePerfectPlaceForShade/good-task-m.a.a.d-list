@@ -126,6 +126,15 @@
       width: 3.2rem;
       height: 3.2rem;
 
+      .closeBtn{
+        border-radius: 1rem;
+        background-color: $color-popsmoke;
+      }
+
+      .closeIcon{
+        fill: $color-mfdoom;
+      }
+
       .colorColumns {
         display: grid;
         grid-template-columns: 1fr 1fr;
