@@ -14,7 +14,7 @@ import {Dropdown} from "@/shared";
 
 interface ITask {
   task: {
-    id: any; // тут чет не понял, какие-то мутки с redux штуками TODO: обрати внимание
+    id: string;
     title: string;
     body: string;
     done: boolean;
@@ -63,7 +63,7 @@ export const Task: FC<ITask> = ({
   const [openedDropdown, setOpenedDropdown] = useState(false);
 
   return (
-    <div className={cn(styles.task, themeChecker())}>
+    <div className={cn(styles.task, themeChecker())} onClick={()=>setOpenedDropdown(!openedDropdown)}>
       <div className={styles.doneBtnAndSelectTheme}>
         <button onClick={doneTask}>
           <MdDone className={styles.icon} />
