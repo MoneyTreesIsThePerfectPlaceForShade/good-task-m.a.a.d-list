@@ -22,7 +22,7 @@ export const TaskList: FC = () => {
       )}
       {filteredTasks &&
         filteredTasks.map((task: any) => (
-          <div>
+          <div key={task.id}>
             <Task task={task} />
           </div>
         ))}
