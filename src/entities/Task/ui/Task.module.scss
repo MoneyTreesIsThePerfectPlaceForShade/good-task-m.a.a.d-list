@@ -18,9 +18,7 @@
 
   box-shadow: 0 0 2rem rgba($color-mfdoom, 0.4);
 
-  button {
-    background-color: darken($color-kendricklamar, 5%);
-  }
+
 
   @media (max-width: 40em) {
     max-width: 55rem;
@@ -82,7 +80,10 @@
 
   button {
     @extend %button-template;
+    background-color: darken($color-kendricklamar, 5%);
   }
+
+
 
   .trashEditBlock {
     display: flex;
@@ -117,7 +118,7 @@
 
     gap: 1.6rem;
 
-    .dropdown{
+    .dropdown {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -125,19 +126,19 @@
       width: 3.2rem;
       height: 3.2rem;
 
-      .colorColumns{
+      .colorColumns {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 1rem;
 
-        .leftColorColumns{
+        .leftColorColumns {
           grid-column: 1/2;
           display: flex;
           flex-direction: column;
           gap: 1rem;
         }
 
-        .rightColorColumns{
+        .rightColorColumns {
           grid-column: 2/3;
           display: flex;
           flex-direction: column;
@@ -169,46 +170,46 @@
 }
 
 .darkTheme {
-  background-color: #868e96 !important;
-  @include setColorTheme(#868e96, true, false, 25%); // lighten - darken
+  background-color: $color-gravediggaz !important;
+  @include setColorTheme($color-gravediggaz, true, false, 25%); // lighten - darken
 }
 
 .yellowTheme {
-  background-color: #eee9da !important;
-  @include setColorTheme(#eee9da, false, true, 10%);
+  background-color: $color-billyWoods !important;
+  @include setColorTheme($color-billyWoods, false, true, 10%);
 }
 
 .blueTheme {
-  background-color: #bdcdd6 !important;
-  @include setColorTheme(#bdcdd6, true, false, 10%);
+  background-color: $color-dannybrown !important;
+  @include setColorTheme($color-dannybrown, true, false, 10%);
 }
 
 .greenTheme {
-  background-color: #bbd6b8 !important;
-  @include setColorTheme(#bbd6b8, false, true, 10%);
+  background-color: $color-sza !important;
+  @include setColorTheme($color-sza, false, true, 10%);
 }
 
 .brownTheme {
-  background-color: #a7727d !important;
-  @include setColorTheme(#a7727d, true, false, 15%);
+  background-color: $color-jid !important;
+  @include setColorTheme($color-jid, true, false, 15%);
 }
 
 .indigoTheme {
-  background-color: #dbe4ff !important;
-  @include setColorTheme(#dbe4ff, false, true, 5%);
+  background-color: $color-jcole !important;
+  @include setColorTheme($color-jcole, false, true, 5%);
 }
 
 .orangeTheme {
-  background-color: #ffd8a8 !important;
-  @include setColorTheme(#ffd8a8, false, true, 10%);
+  background-color: $color-frankocean !important;
+  @include setColorTheme($color-frankocean, false, true, 10%);
 }
 
 .wheatTheme {
-  background-color: #bd9354 !important;
-  @include setColorTheme(#bd9354, true, false, 10%);
+  background-color: $color-pusha-t !important;
+  @include setColorTheme($color-pusha-t, true, false, 10%);
 }
 
 .purpleTheme {
-  background-color: #caadde !important;
-  @include setColorTheme(#caadde, true, false, 10%);
+  background-color: $color-playboicarti !important;
+  @include setColorTheme($color-playboicarti, true, false, 10%);
 }
