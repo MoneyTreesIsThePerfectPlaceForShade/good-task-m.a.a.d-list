@@ -37,7 +37,7 @@ export const Statistics = () => {
           <span>Сделано:</span>
           <span>
           {openNumbers && allTasks.reduce((acc:number,task: { done: boolean })=>task.done ? acc+1: acc, 0)}
-          {openPercents && procentConverter(allTasks.reduce((acc:number,task: { done: boolean })=>task.done ? acc+1: acc, 0), allTasks.length)+'%'}
+          {openPercents && allTasks.length && procentConverter(allTasks.reduce((acc:number,task: { done: boolean })=>task.done ? acc+1: acc, 0), allTasks.length)+'%'}
         </span>
         </div>
 
