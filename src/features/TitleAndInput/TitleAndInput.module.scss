@@ -2,22 +2,27 @@
 
 .labelNInput {
   @extend %label-and-input-template;
-}
 
-.label {
-  @extend %label-template;
-}
+  .label {
+    @extend %label-template;
+  }
 
-.input {
-  @extend %input-field-template;
-  box-shadow: inset 0 0 0.3rem $color-mfdoom;
-}
+  .input {
+    @extend %input-field-template;
+    box-shadow: inset 0 0 0.3rem $color-mfdoom;
+  }
 
-.textarea {
-  @extend %textarea-field-template;
-  box-shadow: inset 0 0 0.3rem $color-mfdoom;
-}
+  .textarea {
+    @extend %textarea-field-template;
+    @include set-font(1.6rem, normal, normal);
+    box-shadow: inset 0 0 0.3rem $color-mfdoom;
+  }
 
-.error {
-  @extend %error-message-template;
+  .error {
+    @extend %error-message-template;
+  }
+
+  .date {
+    @include set-font(1.6rem, normal, normal);
+  }
 }
