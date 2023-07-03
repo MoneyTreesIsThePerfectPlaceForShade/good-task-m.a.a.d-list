@@ -4,17 +4,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
+
+  padding-bottom: 2rem;
 
   @include set-font(1.8rem, normal, 500);
 
-  .toggler{
+  .toggler {
     @extend %filter-task-button-template;
     margin-top: 0;
     padding: 1rem 9rem;
   }
 
-  .statistics{
+  .statistics {
     display: flex;
     gap: 2rem;
 
