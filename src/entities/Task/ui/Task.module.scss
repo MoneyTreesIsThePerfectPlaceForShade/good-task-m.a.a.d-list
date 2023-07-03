@@ -18,8 +18,6 @@
 
   box-shadow: 0 0 2rem rgba($color-mfdoom, 0.4);
 
-
-
   @media (max-width: 40em) {
     max-width: 55rem;
   }
@@ -49,9 +47,22 @@
     box-shadow: inset 0 0 2rem rgba($color-mfdoom, 0.4);
   }
 
-  .title {
-    @include set-font(2.4rem, normal, 700);
-    text-align: center;
+  .titleNBody {
+    max-width: 70%;
+    overflow-wrap: break-word;
+
+    .title {
+      @include set-font(2.4rem, normal, 700);
+      text-align: center;
+    }
+
+    .date {
+      display: flex;
+      justify-content: center;
+      padding: 1rem 0;
+
+      @include set-font(1.4rem, normal, 500);
+    }
   }
 
   .body {
@@ -67,11 +78,6 @@
     border-radius: 2rem;
   }
 
-  .titleNBody {
-    max-width: 70%;
-    overflow-wrap: break-word;
-  }
-
   .done {
     text-decoration: line-through;
     transition: all 0.2s;
@@ -82,8 +88,6 @@
     @extend %button-template;
     background-color: darken($color-kendricklamar, 5%);
   }
-
-
 
   .trashEditBlock {
     display: flex;
@@ -126,12 +130,12 @@
       width: 3.2rem;
       height: 3.2rem;
 
-      .closeBtn{
+      .closeBtn {
         border-radius: 1rem;
         background-color: $color-popsmoke;
       }
 
-      .closeIcon{
+      .closeIcon {
         fill: $color-mfdoom;
       }
 
@@ -180,7 +184,12 @@
 
 .darkTheme {
   background-color: $color-gravediggaz !important;
-  @include setColorTheme($color-gravediggaz, true, false, 25%); // lighten - darken
+  @include setColorTheme(
+    $color-gravediggaz,
+    true,
+    false,
+    25%
+  ); // lighten - darken
 }
 
 .yellowTheme {

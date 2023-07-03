@@ -9,6 +9,7 @@ import { titleHandler } from "../handlers/titleHandler";
 import { bodyHandler } from "../handlers/bodyHandler";
 // custom inputs
 import TitleAndInput from "../TitleAndInput/TitleAndInput";
+import { dateHandler } from "../handlers/dateHandler";
 
 export const AddTask: FC = () => {
   const dispatch = useDispatch();
@@ -18,6 +19,7 @@ export const AddTask: FC = () => {
 
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
+  const [date, setDate] = useState("");
 
   const [titleDirty, setTitleDirty] = useState(false);
   const [bodyDirty, setBodyDirty] = useState(false);
@@ -29,8 +31,15 @@ export const AddTask: FC = () => {
   // как избавиться от первого пустого пейлоада
   // пробовал изначально таск сделать не пустой, но это не выход
   useEffect(() => {
-    setTask({ id: nanoid(8), title, body, done: false, colorTheme: "light" });
-  }, [title, body]);
+    setTask({
+      id: nanoid(8),
+      title,
+      body,
+      date,
+      done: false,
+      colorTheme: "light",
+    });
+  }, [title, body, date]);
 
   useEffect(() => {
     if (titleError || bodyError) {
@@ -46,11 +55,15 @@ export const AddTask: FC = () => {
         <TitleAndInput
           title={title}
           body={body}
+          date={date}
           titleOnChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             titleHandler(e, setTitle, setTitleError)
           }
           bodyOnChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             bodyHandler(e, setBody, setBodyError)
+          }
+          dateOnChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            dateHandler(e, setDate)
           }
           blurHandler={(e: React.FocusEvent<HTMLTextAreaElement, Element>) =>
             blurHandler(e, setTitleDirty, setBodyDirty)
@@ -65,7 +78,7 @@ export const AddTask: FC = () => {
           className={styles.addTask}
           onClick={(e) => {
             e.preventDefault();
-            setTask({ id: nanoid(8), title, body, done: false });
+            setTask({ id: nanoid(8), title, body, date, done: false });
             dispatch(addTask(task));
           }}
           disabled={!formValid}

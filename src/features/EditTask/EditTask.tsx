@@ -10,6 +10,7 @@ import { blurHandler } from "../handlers/blurHandler";
 import { titleHandler } from "../handlers/titleHandler";
 import { bodyHandler } from "../handlers/bodyHandler";
 import TitleAndInput from "@/features/TitleAndInput/TitleAndInput";
+import { dateHandler } from "../handlers/dateHandler";
 
 interface IEditTask {
   id: string;
@@ -24,6 +25,7 @@ export const EditTask: FC<IEditTask> = ({ id }) => {
 
   const [newTitle, setNewTitle] = useState("");
   const [newBody, setNewBody] = useState("");
+  const [newDate, setNewDate] = useState("");
 
   const [titleDirty, setTitleDirty] = useState(false);
   const [bodyDirty, setBodyDirty] = useState(false);
@@ -32,8 +34,8 @@ export const EditTask: FC<IEditTask> = ({ id }) => {
   const [bodyError, setBodyError] = useState("Введите описание");
 
   useEffect(() => {
-    setEditedTask({ id, title: newTitle, body: newBody });
-  }, [id, newTitle, newBody]);
+    setEditedTask({ id, title: newTitle, body: newBody, date: newDate });
+  }, [id, newTitle, newBody, newDate]);
 
   useEffect(() => {
     if (titleError || bodyError) {
@@ -59,11 +61,15 @@ export const EditTask: FC<IEditTask> = ({ id }) => {
           <TitleAndInput
             title={newTitle}
             body={newBody}
+            date={newDate}
             titleOnChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               titleHandler(e, setNewTitle, setTitleError)
             }
             bodyOnChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               bodyHandler(e, setNewBody, setBodyError)
+            }
+            dateOnChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              dateHandler(e, setNewDate)
             }
             blurHandler={(e: React.FocusEvent<HTMLTextAreaElement, Element>) =>
               blurHandler(e, setTitleDirty, setBodyDirty)

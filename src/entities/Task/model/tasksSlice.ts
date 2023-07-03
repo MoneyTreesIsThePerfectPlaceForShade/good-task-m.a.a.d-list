@@ -23,19 +23,23 @@ const tasksSlice = createSlice({
     },
 
     editTask(state, action) {
-      state.tasks.map((task: { id: string; title: string; body: string }) => {
-        if (task.id === action.payload.id) {
-          task.title = action.payload.title;
-          task.body = action.payload.body;
-        }
-        return task;
-      });
-
-      state.filteredTasks.map(
-        (task: { id: string; title: string; body: string }) => {
+      state.tasks.map(
+        (task: { id: string; title: string; body: string; date: string }) => {
           if (task.id === action.payload.id) {
             task.title = action.payload.title;
             task.body = action.payload.body;
+            task.date = action.payload.date;
+          }
+          return task;
+        }
+      );
+
+      state.filteredTasks.map(
+        (task: { id: string; title: string; body: string; date: string }) => {
+          if (task.id === action.payload.id) {
+            task.title = action.payload.title;
+            task.body = action.payload.body;
+            task.date = action.payload.date;
           }
           return task;
         }

@@ -1,18 +1,18 @@
 @import "src/shared/index";
 
-.container{
+.container {
   z-index: 1;
   display: flex;
 
   border: 0.2rem solid $color-mfdoom;
   border-radius: 100rem;
 
-  .openBtn{
+  .openBtn {
     width: 2.8rem;
     height: 2.8rem;
   }
 
-  .children{
+  .children {
     background-color: $color-mfdoom;
     padding: 1rem 1rem;
     display: flex;
@@ -22,4 +22,3 @@
     border-radius: 2rem;
   }
 }
-
