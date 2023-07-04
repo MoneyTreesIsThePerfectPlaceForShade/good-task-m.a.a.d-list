@@ -18,11 +18,11 @@
     box-shadow: inset 0 0 0.3rem $color-mfdoom;
   }
 
-  .error {
-    @extend %error-message-template;
-  }
-
   .date {
     @include set-font(1.6rem, normal, normal);
   }
+}
+
+.error {
+  @extend %error-message-template;
 }
