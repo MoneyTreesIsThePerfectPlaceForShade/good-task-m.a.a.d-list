@@ -179,7 +179,7 @@ export const Task: FC<ITask> = ({
           skipHtml={true}
           transformLinkUri={null}
         />
-        <span className={styles.date}>{dateConverter(date)}</span>
+        {date && <span className={styles.date}>{dateConverter(date)}</span>}
       </div>
       <div className={styles.trashEditBlock}>
         <button

@@ -47,14 +47,22 @@ const tasksSlice = createSlice({
     },
 
     filterCompletedTasks(state, { payload }) {
-      state.filteredTasks = state.tasks.filter(
-        (task: { id: string; title: string; body: string; done: boolean }) => {
-          if (payload === "all") return task;
-          if (payload === "done") return task.done;
-          if (payload === "notDone") return !task.done;
-          return task;
-        }
-      );
+      state.filteredTasks = state.tasks.filter((task: { done: boolean }) => {
+        if (payload === "all") return task;
+        if (payload === "done") return task.done;
+        if (payload === "notDone") return !task.done;
+        return task;
+      });
+    },
+
+    filterByDate(state, { payload }) {
+      state.filteredTasks = state.tasks.filter((task: { date: string }) => {
+        const startDate = payload.startDate;
+        const endDate = payload.endDate;
+
+        if (task.date > startDate && task.date < endDate) return task;
+        else return "";
+      });
     },
 
     toggleDone(state, action) {
@@ -101,6 +109,7 @@ export const {
   deleteTask,
   editTask,
   filterCompletedTasks,
+  filterByDate,
   toggleDone,
   toggleTheme,
 } = tasksSlice.actions;
