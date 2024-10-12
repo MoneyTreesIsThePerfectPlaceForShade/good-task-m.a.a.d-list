@@ -44,6 +44,7 @@ const TitleAndInput: FC<ITitleAndInput> = ({
             value={title}
             onChange={(e) => titleOnChange(e)}
             onBlur={(e) => blurHandler(e)}
+            data-testid="titleOfTask"
           />
         </div>
         {titleDirty && titleError && (
@@ -63,6 +64,7 @@ const TitleAndInput: FC<ITitleAndInput> = ({
             onChange={(e) => bodyOnChange(e)}
             onBlur={(e) => blurHandler(e)}
             placeholder="Markdown разметка активна"
+            data-testid="descriptionOfTask"
           />
         </div>
         {bodyDirty && bodyError && (

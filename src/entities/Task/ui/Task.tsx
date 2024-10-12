@@ -172,13 +172,15 @@ export const Task: FC<ITask> = ({
         className={cn(styles.titleNBody, done ? styles.done : "")}
         data-color-mode="light"
       >
-        <p className={styles.title}>{title}</p>
+        <p className={styles.title} data-testid={`titleOfTask-${title}`}>{title}</p>
+        <div data-testid={`descriptionOfTask-${body}`}>
         <MDEditor.Markdown
           className={styles.body}
           source={body}
           skipHtml={true}
           transformLinkUri={null}
         />
+        </div>
         {date && <span className={styles.date}>{dateConverter(date)}</span>}
       </div>
       <div className={styles.trashEditBlock}>
